@@ -10,6 +10,7 @@ import {
   mdContGridContainerOverlay,
   mdContGridItemImage,
   mdContImage,
+  mdDataOuterBox,
 } from "../../css/styles";
 
 export const MovieDetail = () => {
@@ -77,6 +78,7 @@ export const MovieDetail = () => {
           </Grid>
         </Grid>
       </Box>
+      <Box sx={mdDataOuterBox}></Box>
     </>
   );
 };
