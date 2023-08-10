@@ -26,13 +26,13 @@ const linkStyle = {
 };
 
 const containerStyle = {
-  width: "100vw",
+  width: "100%",
   margin: "auto",
-  bgcolor: "#80cbc4",
   display: "flex",
   flexDirection: "row",
   justifyContent: "center",
   alignItems: "center",
+  borderBottom: "1px solid lightgray",
 };
 
 const menuListStyle = {
@@ -61,7 +61,11 @@ export const Header = () => {
       />
       <AppBar position="static" color="inherit" elevation={0}>
         <Toolbar
-          sx={{ flexWrap: "wrap", display: "flex", alignItems: "flex-end" }}
+          sx={{
+            flexWrap: "wrap",
+            display: "flex",
+            alignItems: "flex-end",
+          }}
         >
           <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
             영화 예매 사이트
