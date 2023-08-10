@@ -23,6 +23,7 @@ import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 // ######################## import 구분 ########################
 
 const defaultTheme = createTheme();
+const phoneRegex = /^(\d{3})(\d{4})(\d{4})$/;
 const gridStyle = {
   mb: 1,
 };
@@ -31,6 +32,12 @@ export const Signup = () => {
   const [birth, setBirth] = useState(dayjs().locale("ko"));
   const [gender, setGender] = useState(null);
   // ###################### 함수 구분 ##########################
+  const formatPhoneNumber = (phoneNumber) => {
+    if (!phoneNumber) return "";
+
+    return phoneNumber.replace(phoneRegex, "$1-$2-$3");
+  };
+
   const handleChangeGender = (event, newGender) => {
     setGender(newGender);
   };
@@ -98,6 +105,7 @@ export const Signup = () => {
                   fullWidth
                   id="name"
                   label="이름"
+                  error
                 />
               </Grid>
               <Grid item xs={12} sm={6} sx={gridStyle}>
@@ -124,6 +132,16 @@ export const Signup = () => {
                   <ToggleButton value="female">여자</ToggleButton>
                   <ToggleButton value="none">선택안함</ToggleButton>
                 </ToggleButtonGroup>
+              </Grid>
+              <Grid item xs={12} sm={12} sx={gridStyle}>
+                <TextField
+                  required
+                  fullWidth
+                  name="phone"
+                  id="phone"
+                  type="tel"
+                  label="연락처"
+                />
               </Grid>
             </Grid>
             <Button
