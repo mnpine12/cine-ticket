@@ -3,8 +3,8 @@ import { Header } from "./Header";
 
 export const Main = () => {
   return (
-    <Box>
+    <>
       <Header />
-    </Box>
+    </>
   );
 };

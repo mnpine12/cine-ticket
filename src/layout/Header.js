@@ -11,47 +11,15 @@ import MenuItem from "@mui/material/MenuItem";
 import ListItemText from "@mui/material/ListItemText";
 import Box from "@mui/material/Box";
 
+import {
+  headerLink,
+  headerBox,
+  headerMenuList,
+  headerMenuItem,
+  headerListItemText,
+} from "../css/styles";
+
 const defaultTheme = createTheme();
-const linkStyle = {
-  my: 1,
-  mx: 1.5,
-  textDecoration: "none",
-  color: "inherit",
-  "&:hover": {
-    color: "#1976d2",
-  },
-  "&.active": {
-    color: "green",
-  },
-};
-
-const containerStyle = {
-  width: "100%",
-  margin: "auto",
-  display: "flex",
-  flexDirection: "row",
-  justifyContent: "center",
-  alignItems: "center",
-  borderBottom: "1px solid lightgray",
-};
-
-const menuListStyle = {
-  width: "100%",
-  display: "flex",
-  flexDirection: "row",
-  padding: 0,
-  justifyContent: "center",
-  alignItems: "center",
-};
-
-const menuItemStyle = {
-  width: "160px",
-  height: "60px",
-  display: "flex",
-  textAlign: "center",
-  justifyContent: "center",
-  alignItems: "center",
-};
 
 export const Header = () => {
   return (
@@ -75,7 +43,7 @@ export const Header = () => {
               variant="button"
               color="text.primary"
               href="/login"
-              sx={linkStyle}
+              sx={headerLink}
             >
               로그인
             </Link>
@@ -83,28 +51,41 @@ export const Header = () => {
               variant="button"
               color="text.primary"
               href="/signup"
-              sx={linkStyle}
+              sx={headerLink}
             >
               회원가입
             </Link>
-            <Link variant="button" color="text.primary" href="#" sx={linkStyle}>
+            <Link
+              variant="button"
+              color="text.primary"
+              href="#"
+              sx={headerLink}
+            >
               빠른예매
             </Link>
           </nav>
         </Toolbar>
-        <Box sx={containerStyle}>
-          <MenuList sx={menuListStyle}>
-            <MenuItem sx={menuItemStyle}>
-              <ListItemText>영화</ListItemText>
+        <Box sx={headerBox}>
+          <MenuList sx={headerMenuList}>
+            <MenuItem sx={headerMenuItem}>
+              <ListItemText primaryTypographyProps={headerListItemText}>
+                영화
+              </ListItemText>
             </MenuItem>
-            <MenuItem sx={menuItemStyle}>
-              <ListItemText>예매</ListItemText>
+            <MenuItem sx={headerMenuItem}>
+              <ListItemText primaryTypographyProps={headerListItemText}>
+                예매
+              </ListItemText>
             </MenuItem>
-            <MenuItem sx={menuItemStyle}>
-              <ListItemText>홈화면</ListItemText>
+            <MenuItem sx={headerMenuItem}>
+              <ListItemText primaryTypographyProps={headerListItemText}>
+                홈화면
+              </ListItemText>
             </MenuItem>
-            <MenuItem sx={menuItemStyle}>
-              <ListItemText>마이페이지</ListItemText>
+            <MenuItem sx={headerMenuItem}>
+              <ListItemText primaryTypographyProps={headerListItemText}>
+                마이페이지
+              </ListItemText>
             </MenuItem>
           </MenuList>
         </Box>
