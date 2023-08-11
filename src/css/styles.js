@@ -1,8 +1,8 @@
 /* Header CSS start */
 
 export const headerLink = {
-  my: 1,
-  mx: 1.5,
+  my: "1rem",
+  mx: "1.5rem",
   textDecoration: "none",
   color: "inherit",
   "&:hover": {
@@ -100,7 +100,37 @@ export const mdContImage = {
 export const mdDataOuterBox = {
   width: "100%",
   height: "500px",
-  background: "#d3d3d3",
+};
+
+export const mdDataGridContainer = {
+  width: "80%",
+  background: "#ffffff",
+  margin: "auto",
+  padding: "1rem",
+};
+
+export const mdDataGridItemTitle = {
+  marginTop: "1rem",
+  marginBottom: "3rem",
+};
+
+export const mdDataGridItemText = {
+  marginTop: "3rem",
+};
+
+export const mdDataGridItemInfo = {
+  marginTop: "1rem",
+  marginBottom: "2rem",
+};
+
+export const mdDataTitleTypo = {
+  fontWeight: "Regular",
+  fontSize: "32px",
+};
+
+export const mdDataContentTypo = {
+  fontWeight: "Regular",
+  fontSize: "16px",
 };
 
 /* MovieDetail CSS end */
