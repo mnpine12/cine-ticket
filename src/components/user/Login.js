@@ -35,7 +35,7 @@ export const Login = () => {
             alignItems: "center",
           }}
         >
-          <Avatar sx={{ m: 1, bgcolor: "#1976d2" }}>
+          <Avatar sx={{ m: 1, background: "#1976d2" }}>
             <LockOutlinedIcon />
           </Avatar>
           <Typography component="h1" variant="h5">
@@ -81,7 +81,7 @@ export const Login = () => {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="/findpwd" variant="body2">
+                <Link href="/forgotPassword" variant="body2">
                   비밀번호 찾기
                 </Link>
               </Grid>
