@@ -1,15 +1,35 @@
 /* Header CSS start */
+export const headerToolbar = {
+  flexWrap: 'wrap',
+  display: 'flex',
+  justifyContent: 'flex-end',
+};
+
+export const headerToolbar_Black = {
+  flexWrap: 'wrap',
+  display: 'flex',
+  justifyContent: 'flex-end',
+  color: '#ffffff',
+  background: '#150e0d',
+};
 
 export const headerLink = {
-  my: '1rem',
-  mx: '1.5rem',
+  padding: '0.5rem',
   textDecoration: 'none',
   color: 'inherit',
   '&:hover': {
-    color: '#1976d2',
+    color: '#7B3EB0',
+    borderBottom: '1px solid #7B3EB0',
   },
-  '&.active': {
-    color: 'green',
+};
+
+export const headerLink_Black = {
+  padding: '0.5rem',
+  textDecoration: 'none',
+  color: 'inherit',
+  '&:hover': {
+    color: '#ffff00',
+    borderBottom: '1px solid #ffff00',
   },
 };
 
@@ -20,16 +40,38 @@ export const headerBox = {
   flexDirection: 'row',
   justifyContent: 'center',
   alignItems: 'center',
-  borderBottom: '1px solid #d3d3d3',
+  borderBottom: '1px solid rgba(192, 192, 192, .2)',
+};
+
+export const headerBox_Black = {
+  width: '100%',
+  margin: 'auto',
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'center',
+  alignItems: 'center',
+  background: 'rgba(0,0,0,.8)',
+  borderBottom: '1px solid rgba(192, 192, 192, .2)',
 };
 
 export const headerMenuList = {
   width: '100%',
   display: 'flex',
   flexDirection: 'row',
-  padding: 0,
+  padding: '1rem',
   justifyContent: 'center',
   alignItems: 'center',
+};
+
+export const headerMenuList_Black = {
+  width: '100%',
+  display: 'flex',
+  flexDirection: 'row',
+  padding: '1rem',
+  justifyContent: 'center',
+  alignItems: 'center',
+  color: '#ffffff',
+  background: '#150e0d',
 };
 
 export const headerMenuItem = {
@@ -150,7 +192,7 @@ export const mdDataContentTypo = {
 
 export const mbOuterBox = {
   width: '100%',
-  height: '800px',
+  height: '700px',
   background: '#150e0d',
   paddingTop: '5rem',
   paddingBottom: '5rem',
@@ -227,6 +269,27 @@ export const mbGridItemButton = {
 export const mbButton = {
   width: '230px',
   background: '#037b94',
+};
+
+export const mbGridContainerSearch = {
+  width: '80%',
+  height: '200px',
+  margin: 'auto',
+};
+
+export const mbGridItemSearch = {
+  width: '100%',
+  height: '100px',
+  margin: 'auto',
+  padding: '2rem',
+  color: '#ffffff',
+};
+
+export const mbLinkItemBox = {
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  fontSize: '18px',
 };
 
 /* Main CSS end */

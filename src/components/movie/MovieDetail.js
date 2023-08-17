@@ -57,7 +57,7 @@ export const MovieDetail = () => {
 
   return (
     <>
-      <Header />
+      <Header type={'none'} />
       <Box sx={mdContOuterBox}>
         <Grid container sx={mdContGridContainer}>
           <div style={mdContGridContainerOverlay} />
