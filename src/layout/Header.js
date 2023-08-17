@@ -97,7 +97,7 @@ export const Header = (props) => {
         </Toolbar>
         <Box sx={headerBoxType}>
           <MenuList sx={headerMenuListType}>
-            <MenuItem component={RouterLink} to='/detail' sx={headerMenuItem}>
+            <MenuItem component={RouterLink} to='/movie' sx={headerMenuItem}>
               <ListItemText primaryTypographyProps={headerListItemText}>
                 영화
               </ListItemText>
@@ -107,7 +107,7 @@ export const Header = (props) => {
                 예매
               </ListItemText>
             </MenuItem>
-            <MenuItem component={RouterLink} to='/'>
+            <MenuItem component={RouterLink} to='/' sx={headerMenuItem}>
               {type === 'none' ? (
                 <img src='images/gigabox.png' alt='기가박스' />
               ) : (

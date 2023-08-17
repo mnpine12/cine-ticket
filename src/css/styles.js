@@ -1,6 +1,8 @@
+/******************************************/
 /* Header CSS start */
+/******************************************/
+
 export const headerToolbar = {
-  flexWrap: 'wrap',
   display: 'flex',
   justifyContent: 'flex-end',
 };
@@ -40,7 +42,7 @@ export const headerBox = {
   flexDirection: 'row',
   justifyContent: 'center',
   alignItems: 'center',
-  borderBottom: '1px solid rgba(192, 192, 192, .2)',
+  borderBottom: '1px solid rgb(192, 192, 192)',
 };
 
 export const headerBox_Black = {
@@ -81,6 +83,9 @@ export const headerMenuItem = {
   textAlign: 'center',
   justifyContent: 'center',
   alignItems: 'center',
+  '&:hover': {
+    backgroundColor: 'transparent',
+  },
 };
 
 export const headerListItemText = {
@@ -96,99 +101,11 @@ export const headerListItemText2 = {
   color: '#ffffff',
 };
 
+/******************************************/
 /* Header CSS end */
-
-/* MovieDetail CSS start */
-
-export const mdContOuterBox = {
-  width: '100%',
-  height: '500px',
-  padding: 0,
-  margin: 0,
-  background: '#151515',
-};
-
-export const mdContGridContainer = {
-  width: '80%',
-  height: '100%',
-  margin: 'auto',
-  position: 'relative',
-  backgroundImage: 'url("images/poster02.jpg")',
-  backgroundSize: 'cover',
-};
-
-export const mdContGridItemText = {
-  width: '100%',
-  height: '100%',
-  margin: 'auto',
-  padding: 1,
-  zIndex: 2,
-};
-
-export const mdContGridContainerOverlay = {
-  position: 'absolute',
-  top: 0,
-  left: 0,
-  width: '100%',
-  height: '100%',
-  opacity: 0.8,
-  background: '#151515',
-  zIndex: 1,
-};
-
-export const mdContGridItemImage = {
-  width: '100%',
-  height: '100%',
-  display: 'flex',
-  flexDirection: 'column',
-  justifyContent: 'center',
-  alignItems: 'center',
-  zIndex: 2,
-};
-
-export const mdContImage = {
-  maxHeight: '85%',
-  borderRadius: '3%',
-};
-
-export const mdDataOuterBox = {
-  width: '100%',
-  height: '500px',
-};
-
-export const mdDataGridContainer = {
-  width: '80%',
-  background: '#ffffff',
-  margin: 'auto',
-  padding: '1rem',
-};
-
-export const mdDataGridItemTitle = {
-  marginTop: '1rem',
-  marginBottom: '3rem',
-};
-
-export const mdDataGridItemText = {
-  marginTop: '3rem',
-};
-
-export const mdDataGridItemInfo = {
-  marginTop: '1rem',
-  marginBottom: '2rem',
-};
-
-export const mdDataTitleTypo = {
-  fontWeight: 'Regular',
-  fontSize: '32px',
-};
-
-export const mdDataContentTypo = {
-  fontWeight: 'Regular',
-  fontSize: '16px',
-};
-
-/* MovieDetail CSS end */
+/******************************************/
 /* Main CSS start */
+/******************************************/
 
 export const mbOuterBox = {
   width: '100%',
@@ -292,4 +209,168 @@ export const mbLinkItemBox = {
   fontSize: '18px',
 };
 
+/******************************************/
 /* Main CSS end */
+/******************************************/
+/* MovieDetail CSS start */
+/******************************************/
+
+export const mdContOuterBox = {
+  width: '100%',
+  height: '500px',
+  padding: 0,
+  margin: 0,
+  background: '#151515',
+};
+
+export const mdContGridContainer = {
+  width: '80%',
+  height: '100%',
+  margin: 'auto',
+  position: 'relative',
+  backgroundImage: 'url("images/poster02.jpg")',
+  backgroundSize: 'cover',
+};
+
+export const mdContGridItemText = {
+  width: '100%',
+  height: '100%',
+  margin: 'auto',
+  padding: 1,
+  zIndex: 2,
+};
+
+export const mdContGridContainerOverlay = {
+  position: 'absolute',
+  top: 0,
+  left: 0,
+  width: '100%',
+  height: '100%',
+  opacity: 0.8,
+  background: '#151515',
+  zIndex: 1,
+};
+
+export const mdContGridItemImage = {
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'center',
+  alignItems: 'center',
+  zIndex: 2,
+};
+
+export const mdContImage = {
+  maxHeight: '85%',
+  borderRadius: '3%',
+};
+
+export const mdDataOuterBox = {
+  width: '100%',
+  height: '500px',
+};
+
+export const mdDataGridContainer = {
+  width: '80%',
+  background: '#ffffff',
+  margin: 'auto',
+  padding: '1rem',
+};
+
+export const mdDataGridItemTitle = {
+  marginTop: '1rem',
+  marginBottom: '3rem',
+};
+
+export const mdDataGridItemText = {
+  marginTop: '3rem',
+};
+
+export const mdDataGridItemInfo = {
+  marginTop: '1rem',
+  marginBottom: '2rem',
+};
+
+export const mdDataTitleTypo = {
+  fontWeight: 'Regular',
+  fontSize: '32px',
+};
+
+export const mdDataContentTypo = {
+  fontWeight: 'Regular',
+  fontSize: '16px',
+};
+
+/******************************************/
+/* MovieDetail CSS end */
+/******************************************/
+/* MovieList CSS start */
+/******************************************/
+
+export const mlOuterBox = {
+  width: '100%',
+  height: '100%',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+};
+
+export const mlGridContainerText = {
+  width: '70%',
+  height: '100px',
+  margin: 'auto',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+};
+
+export const mlGridItemText = {
+  width: '100%',
+  height: '100%',
+};
+
+export const mlGridItemTypo = {
+  paddingTop: '2rem',
+  fontFamily: 'NanumBarunGothic, sans-serif',
+  fontSize: '30px',
+};
+
+export const mlGridContainerTabs = {
+  width: '70%',
+  height: '100%',
+  margin: 'auto',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+};
+
+export const mlGridItemTabs = {
+  width: '100%',
+};
+
+export const mlMenuItem = {
+  width: '250px',
+  height: '50px',
+  textAlign: 'center',
+  justifyContent: 'center',
+  alignItems: 'center',
+  border: '1px solid rgba(0,0,0,0.2)',
+  '&:hover': {
+    background: 'none',
+    borderBottom: '1px solid pink',
+  },
+  '&.Mui-selected': {
+    background: 'pink',
+  },
+};
+
+export const mlContentsBox = {
+  width: '70%',
+  height: '100%',
+  margin: 'auto',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+};
