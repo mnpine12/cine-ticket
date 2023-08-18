@@ -52,7 +52,7 @@ const movie = [
       '역사상 가장 끔찍한 비밀경찰 조직 vs 볼코노고프 대위 희망 없는 세상, 영혼을 구하기 위한 대탈출! 숨막히는 서스펜스 스릴러!',
   },
   {
-    title: '신체모음.zip',
+    title: '그녀의 취미생활',
     ageRating: '15세',
     reservationRate: 0,
     releaseDate: '2023-08-30',
