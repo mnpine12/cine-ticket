@@ -14,7 +14,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import {
   mbBoxImage,
   mbButton,
-  mbGridContainerButton,
   mbGridContainerImage,
   mbGridContainerSearch,
   mbGridContainerText,
@@ -175,31 +174,19 @@ export const Main = () => {
                   />
                 )}
               </Box>
+              <Box sx={mbGridItemButton}>
+                <Button
+                  variant='contained'
+                  disableElevation
+                  disableRipple
+                  sx={mbButton}
+                  onClick={handleOnClick}
+                >
+                  예매
+                </Button>
+              </Box>
             </Grid>
           ))}
-        </Grid>
-
-        <Grid container sx={mbGridContainerButton}>
-          <Grid item xs={12} sm={3} sx={mbGridItemButton}>
-            <Button variant='contained' sx={mbButton} onClick={handleOnClick}>
-              예매
-            </Button>
-          </Grid>
-          <Grid item xs={12} sm={3} sx={mbGridItemButton}>
-            <Button variant='contained' sx={mbButton} onClick={handleOnClick}>
-              예매
-            </Button>
-          </Grid>
-          <Grid item xs={12} sm={3} sx={mbGridItemButton}>
-            <Button variant='contained' sx={mbButton} onClick={handleOnClick}>
-              예매
-            </Button>
-          </Grid>
-          <Grid item xs={12} sm={3} sx={mbGridItemButton}>
-            <Button variant='contained' sx={mbButton} onClick={handleOnClick}>
-              예매
-            </Button>
-          </Grid>
         </Grid>
         <Grid container sx={mbGridContainerSearch}>
           <Grid item xs={12} sm={3} sx={mbGridItemSearch}>
@@ -215,7 +202,7 @@ export const Main = () => {
           </Grid>
           <Grid item xs={12} sm={3} sx={mbGridItemSearch}>
             <Box sx={mbLinkItemBox}>
-              <img src='images/icon1.png' alt='icon1' />
+              <img src='/images/icon1.png' alt='icon1' />
               &nbsp;&nbsp;
               <Link href='#' color={'#ffffff'}>
                 상영시간표
@@ -224,7 +211,7 @@ export const Main = () => {
           </Grid>
           <Grid item xs={12} sm={3} sx={mbGridItemSearch}>
             <Box sx={mbLinkItemBox}>
-              <img src='images/icon2.png' alt='icon2' />
+              <img src='/images/icon2.png' alt='icon2' />
               &nbsp;&nbsp;
               <Link href='#' color={'#ffffff'}>
                 박스오피스
@@ -233,7 +220,7 @@ export const Main = () => {
           </Grid>
           <Grid item xs={12} sm={3} sx={mbGridItemSearch}>
             <Box sx={mbLinkItemBox}>
-              <img src='images/icon3.png' alt='icon3' />
+              <img src='/images/icon3.png' alt='icon3' />
               &nbsp;&nbsp;
               <Link href='#' color={'#ffffff'}>
                 빠른예매

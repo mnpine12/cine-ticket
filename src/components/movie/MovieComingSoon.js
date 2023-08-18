@@ -143,7 +143,12 @@ export const MovieComingSoon = () => {
                   개봉일 {movie[index].releaseDate.replace(/-/g, '.')}
                 </Typography>
               </Box>
-              <Button variant='contained' disableRipple sx={mcsButton}>
+              <Button
+                variant='contained'
+                disableElevation
+                disableRipple
+                sx={mcsButton}
+              >
                 예매
               </Button>
             </Grid>

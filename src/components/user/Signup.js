@@ -29,29 +29,31 @@ const gridStyle = {
 export const Signup = () => {
   const [birth, setBirth] = useState(dayjs().locale('ko'));
   const [gender, setGender] = useState('none');
-  const [id, setId] = useState('');
+  const [account, setAccount] = useState('');
   const [password, setPassword] = useState('');
   const [name, setName] = useState('');
-  const [phone, setPhone] = useState('');
+  const [phoneNumber, setPhoneNumber] = useState('');
+  const [email, setEmail] = useState('');
 
-  const [idError, setIdError] = useState(false);
+  const [idError, setAccountError] = useState(false);
   const [passwordError, setPasswordError] = useState(false);
   const [nameError, setNameError] = useState(false);
-  const [phoneError, setPhoneError] = useState(false);
+  const [phoneNumberError, setPhoneNumberError] = useState(false);
+  const [emailError, setEmailError] = useState(false);
 
   // ###################### 함수 구분 ##########################
 
   // 연락처 입력
-  const handlePhoneChange = (event) => {
+  const handlePhoneNumberChange = (event) => {
     const inputValue = event.target.value;
-    const formattedValue = formatPhoneNumber(inputValue);
+    const formattedValue = formatPhoneNumberNumber(inputValue);
     if (formattedValue.length <= 13) {
-      setPhone(formattedValue);
+      setPhoneNumber(formattedValue);
     }
   };
 
   // 연락처 입력값 포맷
-  const formatPhoneNumber = (value) => {
+  const formatPhoneNumberNumber = (value) => {
     value = value.replace(/\D/g, '');
     let formattedValue = '';
 
@@ -71,8 +73,8 @@ export const Signup = () => {
 
   const handleFieldFocus = (fieldName) => {
     switch (fieldName) {
-      case 'id':
-        setIdError(false);
+      case 'account':
+        setAccountError(false);
         break;
       case 'password':
         setPasswordError(false);
@@ -80,8 +82,11 @@ export const Signup = () => {
       case 'name':
         setNameError(false);
         break;
-      case 'phone':
-        setPhoneError(false);
+      case 'phoneNumber':
+        setPhoneNumberError(false);
+        break;
+      case 'email':
+        setEmailError(false);
         break;
       default:
         break;
@@ -90,9 +95,9 @@ export const Signup = () => {
 
   const handleFieldBlur = (fieldName) => {
     switch (fieldName) {
-      case 'id':
-        if (id.trim() === '') {
-          setIdError(true);
+      case 'account':
+        if (account.trim() === '') {
+          setAccountError(true);
         }
         break;
       case 'password':
@@ -105,9 +110,14 @@ export const Signup = () => {
           setNameError(true);
         }
         break;
-      case 'phone':
-        if (phone.trim() === '') {
-          setPhoneError(true);
+      case 'phoneNumber':
+        if (phoneNumber.trim() === '') {
+          setPhoneNumberError(true);
+        }
+        break;
+      case 'email':
+        if (email.trim() === '') {
+          setEmailError(true);
         }
         break;
       default:
@@ -125,7 +135,7 @@ export const Signup = () => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
     console.log({
-      id: data.get('id'),
+      account: data.get('account'),
       password: data.get('password'),
     });
   };
@@ -159,14 +169,14 @@ export const Signup = () => {
                 <TextField
                   required
                   fullWidth
-                  id='id'
+                  id='account'
                   label='아이디'
-                  name='id'
+                  name='account'
                   autoFocus
                   error={idError}
-                  onChange={(e) => setId(e.target.value)}
-                  onFocus={() => handleFieldFocus('id')}
-                  onBlur={() => handleFieldBlur('id')}
+                  onChange={(e) => setAccount(e.target.value)}
+                  onFocus={() => handleFieldFocus('account')}
+                  onBlur={() => handleFieldBlur('account')}
                 />
               </Grid>
               <Grid item xs={12} sx={gridStyle}>
@@ -224,17 +234,32 @@ export const Signup = () => {
               </Grid>
               <Grid item xs={12} sm={12} sx={gridStyle}>
                 <TextField
+                  autoComplete='email'
+                  type='email'
+                  name='email'
+                  id='email'
+                  label='이메일'
                   required
                   fullWidth
-                  name='phone'
-                  id='phone'
+                  error={emailError}
+                  onChange={(e) => setEmail(e.target.value)}
+                  onFocus={() => handleFieldFocus('email')}
+                  onBlur={() => handleFieldBlur('email')}
+                />
+              </Grid>
+              <Grid item xs={12} sm={12} sx={gridStyle}>
+                <TextField
+                  required
+                  fullWidth
+                  name='phoneNumber'
+                  id='phoneNumber'
                   type='tel'
                   label='연락처'
-                  error={phoneError}
-                  onFocus={() => handleFieldFocus('phone')}
-                  onBlur={() => handleFieldBlur('phone')}
-                  value={phone}
-                  onChange={handlePhoneChange}
+                  error={phoneNumberError}
+                  onFocus={() => handleFieldFocus('phoneNumber')}
+                  onBlur={() => handleFieldBlur('phoneNumber')}
+                  value={phoneNumber}
+                  onChange={handlePhoneNumberChange}
                   inputProps={{
                     maxLength: 13,
                   }}
