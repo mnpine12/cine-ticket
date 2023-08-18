@@ -141,7 +141,12 @@ export const MovieChart = () => {
                   개봉일 {movie[index].releaseDate.replace(/-/g, '.')}
                 </Typography>
               </Box>
-              <Button variant='contained' disableRipple sx={mcButton}>
+              <Button
+                variant='contained'
+                disableElevation
+                disableRipple
+                sx={mcButton}
+              >
                 예매
               </Button>
             </Grid>

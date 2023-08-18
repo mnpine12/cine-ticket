@@ -14,7 +14,6 @@ import SearchIcon from '@mui/icons-material/Search';
 import {
   mbBoxImage,
   mbButton,
-  mbGridContainerButton,
   mbGridContainerImage,
   mbGridContainerSearch,
   mbGridContainerText,
@@ -175,31 +174,19 @@ export const Main = () => {
                   />
                 )}
               </Box>
+              <Box sx={mbGridItemButton}>
+                <Button
+                  variant='contained'
+                  disableElevation
+                  disableRipple
+                  sx={mbButton}
+                  onClick={handleOnClick}
+                >
+                  예매
+                </Button>
+              </Box>
             </Grid>
           ))}
-        </Grid>
-
-        <Grid container sx={mbGridContainerButton}>
-          <Grid item xs={12} sm={3} sx={mbGridItemButton}>
-            <Button variant='contained' sx={mbButton} onClick={handleOnClick}>
-              예매
-            </Button>
-          </Grid>
-          <Grid item xs={12} sm={3} sx={mbGridItemButton}>
-            <Button variant='contained' sx={mbButton} onClick={handleOnClick}>
-              예매
-            </Button>
-          </Grid>
-          <Grid item xs={12} sm={3} sx={mbGridItemButton}>
-            <Button variant='contained' sx={mbButton} onClick={handleOnClick}>
-              예매
-            </Button>
-          </Grid>
-          <Grid item xs={12} sm={3} sx={mbGridItemButton}>
-            <Button variant='contained' sx={mbButton} onClick={handleOnClick}>
-              예매
-            </Button>
-          </Grid>
         </Grid>
         <Grid container sx={mbGridContainerSearch}>
           <Grid item xs={12} sm={3} sx={mbGridItemSearch}>

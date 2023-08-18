@@ -84,7 +84,7 @@ export const headerMenuItem = {
   justifyContent: 'center',
   alignItems: 'center',
   '&:hover': {
-    backgroundColor: 'transparent',
+    background: 'transparent',
   },
 };
 
@@ -109,10 +109,10 @@ export const headerListItemText2 = {
 
 export const mbOuterBox = {
   width: '100%',
-  height: '700px',
+  height: '100%',
   background: '#150e0d',
-  paddingTop: '5rem',
-  paddingBottom: '5rem',
+  paddingTop: '4rem',
+  paddingBottom: '3rem',
 };
 
 export const mbGridContainerText = {
@@ -132,15 +132,18 @@ export const mbGridItemText = {
 
 export const mbGridContainerImage = {
   width: '80%',
-  height: '400px',
+  height: '100%',
   margin: 'auto',
 };
+
 export const mbGridItemImage = {
   width: '100%',
   height: '400px',
+  marginTop: '1rem',
   display: 'flex',
-  justifyContent: 'center',
+  flexDirection: 'column',
   alignItems: 'center',
+  justifyContent: 'center',
 };
 
 export const mbBoxImage = {
@@ -169,12 +172,6 @@ export const mbContGridItemImageOverlay = {
   zIndex: 1,
 };
 
-export const mbGridContainerButton = {
-  width: '80%',
-  height: '50px',
-  margin: 'auto',
-};
-
 export const mbGridItemButton = {
   width: '100%',
   height: '100%',
@@ -184,14 +181,20 @@ export const mbGridItemButton = {
 };
 
 export const mbButton = {
-  width: '230px',
+  width: '240px',
+  marginTop: '10px',
   background: '#037b94',
+  '&:hover': {
+    background: '#037b94',
+  },
 };
 
 export const mbGridContainerSearch = {
   width: '80%',
-  height: '200px',
+  height: '100%',
   margin: 'auto',
+  paddingTop: '4rem',
+  paddingRight: '1rem',
 };
 
 export const mbGridItemSearch = {
