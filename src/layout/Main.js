@@ -202,7 +202,7 @@ export const Main = () => {
           </Grid>
           <Grid item xs={12} sm={3} sx={mbGridItemSearch}>
             <Box sx={mbLinkItemBox}>
-              <img src='images/icon1.png' alt='icon1' />
+              <img src='/images/icon1.png' alt='icon1' />
               &nbsp;&nbsp;
               <Link href='#' color={'#ffffff'}>
                 상영시간표
@@ -211,7 +211,7 @@ export const Main = () => {
           </Grid>
           <Grid item xs={12} sm={3} sx={mbGridItemSearch}>
             <Box sx={mbLinkItemBox}>
-              <img src='images/icon2.png' alt='icon2' />
+              <img src='/images/icon2.png' alt='icon2' />
               &nbsp;&nbsp;
               <Link href='#' color={'#ffffff'}>
                 박스오피스
@@ -220,7 +220,7 @@ export const Main = () => {
           </Grid>
           <Grid item xs={12} sm={3} sx={mbGridItemSearch}>
             <Box sx={mbLinkItemBox}>
-              <img src='images/icon3.png' alt='icon3' />
+              <img src='/images/icon3.png' alt='icon3' />
               &nbsp;&nbsp;
               <Link href='#' color={'#ffffff'}>
                 빠른예매

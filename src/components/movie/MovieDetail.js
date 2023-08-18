@@ -18,6 +18,7 @@ import {
   mdDataGridItemText,
   mdDataGridItemInfo,
   mdDataGridItemTitle,
+  mdButton,
 } from '../../css/styles';
 
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
@@ -108,13 +109,10 @@ export const MovieDetail = () => {
           <Grid item xs={12} sm={4} sx={mdContGridItemImage}>
             <img
               style={mdContImage}
-              src='images/poster01.jpg'
+              src='/images/poster01.jpg'
               alt='메가로돈 2 영화 포스터'
             />
-            <Button
-              variant='contained'
-              sx={{ mt: 1, width: '75%', height: '10%' }}
-            >
+            <Button variant='contained' sx={mdButton}>
               예매
             </Button>
           </Grid>

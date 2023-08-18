@@ -185,7 +185,7 @@ export const mbButton = {
   marginTop: '10px',
   background: '#037b94',
   '&:hover': {
-    background: '#037b94',
+    background: '#329eb1',
   },
 };
 
@@ -303,6 +303,16 @@ export const mdDataTitleTypo = {
 export const mdDataContentTypo = {
   fontWeight: 'Regular',
   fontSize: '16px',
+};
+
+export const mdButton = {
+  width: '72%',
+  height: '10%',
+  mt: 1,
+  background: '#037b94',
+  '&:hover': {
+    background: '#329eb1',
+  },
 };
 
 /******************************************/
