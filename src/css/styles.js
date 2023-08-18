@@ -443,7 +443,8 @@ export const mcGridItemImage = {
 
 export const mcImageText = {
   position: 'absolute',
-  paddingLeft: '10px',
+  paddingLeft: '5px',
+  paddingRight: '5px',
   color: '#ffffff',
 };
 
@@ -466,6 +467,14 @@ export const mcGridItemLogoImage = {
   width: '23px',
   height: '23px',
   marginRight: '10px',
+};
+
+export const mcTitleTypo = {
+  fontSize: '20px',
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
+  flex: '1',
 };
 
 export const mcGridItemBoxTypo = {
@@ -498,3 +507,103 @@ export const mcButton = {
 /******************************************/
 /* MovieComingSoon CSS start */
 /******************************************/
+
+export const mcsOuterBox = {
+  width: '100%',
+  height: '100%',
+  marginTop: '2rem',
+};
+
+export const mcsGridContainer = {
+  width: '100%',
+  height: '100%',
+};
+
+export const mcsGridItemSearch = {
+  width: '100%',
+  height: '100%',
+};
+
+export const mcsGridItemMovie = {
+  width: '100%',
+  height: '450px',
+  marginTop: '1rem',
+  marginBottom: '4rem',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+};
+
+export const mcsGridItemImageBox = {
+  position: 'relative',
+  display: 'flex',
+  alignItems: 'center',
+  background: '#151515',
+};
+
+export const mcsGridItemImage = {
+  width: '230px',
+  height: '331px',
+};
+
+export const mcsImageText = {
+  position: 'absolute',
+  paddingLeft: '5px',
+  paddingRight: '5px',
+  color: '#ffffff',
+};
+
+export const mcsGridItemImageOverlay = {
+  width: '230px',
+  height: '331px',
+  opacity: 0.2,
+  zIndex: 1,
+};
+
+export const mcsGridItemInnerBox = {
+  width: '230px',
+  marginTop: '15px',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+};
+
+export const mcsGridItemLogoImage = {
+  width: '23px',
+  height: '23px',
+  marginRight: '10px',
+};
+
+export const mcsTitleTypo = {
+  fontSize: '20px',
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
+  flex: '1',
+};
+
+export const mcsGridItemBoxTypo = {
+  width: '230px',
+  marginTop: '5px',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+};
+
+export const mcsTypo = {
+  fontSize: '14.5px',
+  fontFamily: 'NanumBarunGothic, sans-serif',
+};
+
+export const mcsButton = {
+  width: '230px',
+  height: '36px',
+  marginTop: '5px',
+  background: '#503396',
+  borderRadius: '4px',
+  border: 0,
+  '&:hover': {
+    background: '#351f67',
+  },
+};

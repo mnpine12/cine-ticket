@@ -61,7 +61,7 @@ export const MovieList = () => {
             <Link
               color='inherit'
               underline='none'
-              href='/movie'
+              href='/movie/boxOffice'
               sx={{ display: 'flex', alignItems: 'center' }}
             >
               영화

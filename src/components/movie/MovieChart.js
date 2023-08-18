@@ -1,4 +1,10 @@
+import { useState } from 'react';
+
 import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import Grid from '@mui/material/Grid';
+import Typography from '@mui/material/Typography';
+
 import {
   mcButton,
   mcGridContainer,
@@ -12,10 +18,9 @@ import {
   mcGridItemSearch,
   mcImageText,
   mcOuterBox,
+  mcTitleTypo,
   mcTypo,
 } from '../../css/styles';
-import { Button, Grid, Typography } from '@mui/material';
-import { useState } from 'react';
 
 const movie = [
   {
@@ -119,9 +124,7 @@ export const MovieChart = () => {
                 alt={movie[0].ageRating}
                 style={mcGridItemLogoImage}
               />
-              <Typography sx={{ fontSize: '20px' }}>
-                {movie[0].title}
-              </Typography>
+              <Typography sx={mcTitleTypo}>{movie[0].title}</Typography>
             </Box>
             <Box sx={mcGridItemBoxTypo}>
               <Typography sx={mcTypo}>
