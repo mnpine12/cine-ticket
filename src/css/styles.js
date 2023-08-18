@@ -317,8 +317,18 @@ export const mlOuterBox = {
   justifyContent: 'center',
 };
 
+export const mlBreadcrumbsBox = {
+  width: '100%',
+  height: '40px',
+  paddingLeft: '20rem',
+  background: '#f8f8fa',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+};
+
 export const mlGridContainerText = {
-  width: '70%',
+  width: '80%',
   height: '100px',
   margin: 'auto',
   flexDirection: 'column',
@@ -338,7 +348,7 @@ export const mlGridItemTypo = {
 };
 
 export const mlGridContainerTabs = {
-  width: '70%',
+  width: '80%',
   height: '100%',
   margin: 'auto',
   flexDirection: 'column',
@@ -351,26 +361,140 @@ export const mlGridItemTabs = {
 };
 
 export const mlMenuItem = {
-  width: '250px',
+  width: '300px',
   height: '50px',
   textAlign: 'center',
   justifyContent: 'center',
   alignItems: 'center',
   border: '1px solid rgba(0,0,0,0.2)',
+  borderBottom: '1px solid rgb(91, 64, 160)',
   '&:hover': {
-    background: 'none',
-    borderBottom: '1px solid pink',
+    background: '#ffffff',
   },
   '&.Mui-selected': {
-    background: 'pink',
+    color: '#5B40A0',
+    background: '#ffffff',
+    border: '1px solid rgb(91, 64, 160)',
+    borderBottom: '1px solid #ffffff',
+    fontWeight: 'bold',
   },
 };
 
+export const mlMenuItemDisable = {
+  width: '320px',
+  height: '50px',
+  borderBottom: '1px solid rgb(91, 64, 160)',
+  pointerEvents: 'none',
+};
+
 export const mlContentsBox = {
-  width: '70%',
+  width: '80%',
   height: '100%',
   margin: 'auto',
   flexDirection: 'column',
   alignItems: 'center',
   justifyContent: 'center',
 };
+
+/******************************************/
+/* MovieList CSS end */
+/******************************************/
+/* MovieChart CSS start */
+/******************************************/
+
+export const mcOuterBox = {
+  width: '100%',
+  height: '100%',
+  marginTop: '2rem',
+};
+
+export const mcGridContainer = {
+  width: '100%',
+  height: '100%',
+};
+
+export const mcGridItemSearch = {
+  width: '100%',
+  height: '100%',
+};
+
+export const mcGridItemMovie = {
+  width: '100%',
+  height: '450px',
+  marginTop: '1rem',
+  marginBottom: '4rem',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+};
+
+export const mcGridItemImageBox = {
+  position: 'relative',
+  display: 'flex',
+  alignItems: 'center',
+  background: '#151515',
+};
+
+export const mcGridItemImage = {
+  width: '230px',
+  height: '331px',
+};
+
+export const mcImageText = {
+  position: 'absolute',
+  paddingLeft: '10px',
+  color: '#ffffff',
+};
+
+export const mcGridItemImageOverlay = {
+  width: '230px',
+  height: '331px',
+  opacity: 0.2,
+  zIndex: 1,
+};
+
+export const mcGridItemInnerBox = {
+  width: '230px',
+  marginTop: '15px',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+};
+
+export const mcGridItemLogoImage = {
+  width: '23px',
+  height: '23px',
+  marginRight: '10px',
+};
+
+export const mcGridItemBoxTypo = {
+  width: '230px',
+  marginTop: '5px',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+};
+
+export const mcTypo = {
+  fontSize: '14.5px',
+  fontFamily: 'NanumBarunGothic, sans-serif',
+};
+
+export const mcButton = {
+  width: '230px',
+  height: '36px',
+  marginTop: '5px',
+  background: '#503396',
+  borderRadius: '4px',
+  border: 0,
+  '&:hover': {
+    background: '#351f67',
+  },
+};
+
+/******************************************/
+/* MovieChart CSS end */
+/******************************************/
+/* MovieComingSoon CSS start */
+/******************************************/

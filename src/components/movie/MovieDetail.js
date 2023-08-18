@@ -24,7 +24,7 @@ import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDown
 import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
 import { styled } from '@mui/material/styles';
 
-import { Header } from '../../layout/Header';
+import Header from '../../layout/Header';
 
 const CustomButton = styled(Button)({
   backgroundColor: 'none',
