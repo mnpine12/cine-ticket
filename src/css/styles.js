@@ -160,7 +160,7 @@ export const mbImageText = {
   color: '#ffffff',
 };
 
-export const mdContGridItemImageOverlay = {
+export const mbContGridItemImageOverlay = {
   width: '240px',
   height: '351px',
   borderRadius: '3%',
