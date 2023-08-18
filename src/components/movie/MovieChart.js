@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
@@ -62,25 +62,27 @@ const movie = [
 ];
 
 export const MovieChart = () => {
-  const [isHovered, setIsHovered] = useState({
-    image1: false,
-    image2: false,
-    image3: false,
-    image4: false,
-  });
+  const [isHovered, setIsHovered] = useState([]);
 
-  const handleOnMouseEnter = (imageKey) => {
-    setIsHovered((prevState) => ({
-      ...prevState,
-      [imageKey]: true,
-    }));
+  useEffect(() => {
+    const initialHoverState = movie.map(() => ({ hovered: false }));
+    setIsHovered(initialHoverState);
+  }, []);
+
+  const handleOnMouseEnter = (index) => {
+    setIsHovered((prevIsHovered) => {
+      const updatedHovered = [...prevIsHovered];
+      updatedHovered[index] = { hovered: true };
+      return updatedHovered;
+    });
   };
 
-  const handleOnMouseLeave = (imageKey) => {
-    setIsHovered((prevState) => ({
-      ...prevState,
-      [imageKey]: false,
-    }));
+  const handleOnMouseLeave = (index) => {
+    setIsHovered((prevIsHovered) => {
+      const updatedHovered = [...prevIsHovered];
+      updatedHovered[index] = { hovered: false };
+      return updatedHovered;
+    });
   };
 
   return (
@@ -88,227 +90,62 @@ export const MovieChart = () => {
       <Box sx={mcOuterBox}>
         <Grid container sx={mcGridContainer}>
           <Grid item xs={12} sm={12} sx={mcGridItemSearch}></Grid>
-          <Grid item xs={12} sm={3} sx={mcGridItemMovie}>
-            <Box
-              sx={mcGridItemImageBox}
-              onMouseEnter={() => handleOnMouseEnter('image1')}
-              onMouseLeave={() => handleOnMouseLeave('image1')}
-            >
-              {isHovered.image1 ? (
+          {movie.map((item, index) => (
+            <Grid item xs={12} sm={3} sx={mcGridItemMovie} key={index}>
+              <Box
+                sx={mcGridItemImageBox}
+                onMouseEnter={() => handleOnMouseEnter(index)}
+                onMouseLeave={() => handleOnMouseLeave(index)}
+              >
+                {isHovered[index]?.hovered === true ? (
+                  <>
+                    <img
+                      src={`/images/main_image_0${index + 1}.jpg`}
+                      alt={movie[index].title}
+                      style={mcGridItemImageOverlay}
+                    />
+                    <Typography sx={mcImageText}>
+                      {movie[index].summaryTitle}
+                      <br />
+                      <br />
+                      {movie[index].summaryContents}
+                    </Typography>
+                  </>
+                ) : (
+                  <img
+                    src={`/images/main_image_0${index + 1}.jpg`}
+                    alt={movie[index].title}
+                    style={mcGridItemImage}
+                  />
+                )}
+              </Box>
+              <Box sx={mcGridItemInnerBox}>
                 <img
-                  src='/images/main_image_01.jpg'
-                  alt={movie[0].title}
-                  onMouseEnter={handleOnMouseEnter}
-                  onMouseLeave={handleOnMouseLeave}
-                  style={mcGridItemImageOverlay}
+                  src={`/images/${movie[index].ageRating.replace(
+                    '세',
+                    '',
+                  )}_46x46.png`}
+                  alt={movie[index].ageRating}
+                  style={mcGridItemLogoImage}
                 />
-              ) : (
-                <img
-                  src='/images/main_image_01.jpg'
-                  alt={movie[0].title}
-                  style={mcGridItemImage}
-                />
-              )}
-              {isHovered.image1 && (
-                <Typography sx={mcImageText}>
-                  {movie[0].summaryTitle}
-                  <br />
-                  <br />
-                  {movie[0].summaryContents}
+                <Typography sx={mcTitleTypo}>{movie[index].title}</Typography>
+              </Box>
+              <Box sx={mcGridItemBoxTypo}>
+                <Typography sx={mcTypo}>
+                  예매율 {movie[index].reservationRate}%
                 </Typography>
-              )}
-            </Box>
-            <Box sx={mcGridItemInnerBox}>
-              <img
-                src='/images/15_46x46.png'
-                alt={movie[0].ageRating}
-                style={mcGridItemLogoImage}
-              />
-              <Typography sx={mcTitleTypo}>{movie[0].title}</Typography>
-            </Box>
-            <Box sx={mcGridItemBoxTypo}>
-              <Typography sx={mcTypo}>
-                예매율 {movie[0].reservationRate}%
-              </Typography>
-              &nbsp;
-              <Typography sx={{ ...mcTypo, color: '#C0C0C0' }}>|</Typography>
-              &nbsp;
-              <Typography sx={mcTypo}>
-                개봉일 {movie[0].releaseDate.replace(/-/g, '.')}
-              </Typography>
-            </Box>
-            <Button variant='contained' disableRipple sx={mcButton}>
-              예매
-            </Button>
-          </Grid>
-
-          <Grid item xs={12} sm={3} sx={mcGridItemMovie}>
-            <Box
-              sx={mcGridItemImageBox}
-              onMouseEnter={() => handleOnMouseEnter('image2')}
-              onMouseLeave={() => handleOnMouseLeave('image2')}
-            >
-              {isHovered.image2 ? (
-                <img
-                  src='/images/main_image_02.jpg'
-                  alt={movie[1].title}
-                  onMouseEnter={handleOnMouseEnter}
-                  onMouseLeave={handleOnMouseLeave}
-                  style={mcGridItemImageOverlay}
-                />
-              ) : (
-                <img
-                  src='/images/main_image_02.jpg'
-                  alt={movie[1].title}
-                  style={mcGridItemImage}
-                />
-              )}
-              {isHovered.image2 && (
-                <Typography sx={mcImageText}>
-                  {movie[1].summaryTitle}
-                  <br />
-                  <br />
-                  {movie[1].summaryContents}
+                &nbsp;
+                <Typography sx={{ ...mcTypo, color: '#C0C0C0' }}>|</Typography>
+                &nbsp;
+                <Typography sx={mcTypo}>
+                  개봉일 {movie[index].releaseDate.replace(/-/g, '.')}
                 </Typography>
-              )}
-            </Box>
-            <Box sx={mcGridItemInnerBox}>
-              <img
-                src='/images/15_46x46.png'
-                alt={movie[0].ageRating}
-                style={mcGridItemLogoImage}
-              />
-              <Typography sx={{ fontSize: '20px' }}>
-                {movie[1].title}
-              </Typography>
-            </Box>
-            <Box sx={mcGridItemBoxTypo}>
-              <Typography sx={mcTypo}>
-                예매율 {movie[1].reservationRate}%
-              </Typography>
-              &nbsp;
-              <Typography sx={{ ...mcTypo, color: '#C0C0C0' }}>|</Typography>
-              &nbsp;
-              <Typography sx={mcTypo}>
-                개봉일 {movie[1].releaseDate.replace(/-/g, '.')}
-              </Typography>
-            </Box>
-            <Button variant='contained' disableRipple sx={mcButton}>
-              예매
-            </Button>
-          </Grid>
-
-          <Grid item xs={12} sm={3} sx={mcGridItemMovie}>
-            <Box
-              sx={mcGridItemImageBox}
-              onMouseEnter={() => handleOnMouseEnter('image3')}
-              onMouseLeave={() => handleOnMouseLeave('image3')}
-            >
-              {isHovered.image3 ? (
-                <img
-                  src='/images/main_image_03.jpg'
-                  alt={movie[2].title}
-                  onMouseEnter={handleOnMouseEnter}
-                  onMouseLeave={handleOnMouseLeave}
-                  style={mcGridItemImageOverlay}
-                />
-              ) : (
-                <img
-                  src='/images/main_image_03.jpg'
-                  alt={movie[2].title}
-                  style={mcGridItemImage}
-                />
-              )}
-              {isHovered.image3 && (
-                <Typography sx={mcImageText}>
-                  {movie[2].summaryTitle}
-                  <br />
-                  <br />
-                  {movie[2].summaryContents}
-                </Typography>
-              )}
-            </Box>
-            <Box sx={mcGridItemInnerBox}>
-              <img
-                src='/images/15_46x46.png'
-                alt={movie[0].ageRating}
-                style={mcGridItemLogoImage}
-              />
-              <Typography sx={{ fontSize: '20px' }}>
-                {movie[2].title}
-              </Typography>
-            </Box>
-            <Box sx={mcGridItemBoxTypo}>
-              <Typography sx={mcTypo}>
-                예매율 {movie[2].reservationRate}%
-              </Typography>
-              &nbsp;
-              <Typography sx={{ ...mcTypo, color: '#C0C0C0' }}>|</Typography>
-              &nbsp;
-              <Typography sx={mcTypo}>
-                개봉일 {movie[2].releaseDate.replace(/-/g, '.')}
-              </Typography>
-            </Box>
-            <Button variant='contained' disableRipple sx={mcButton}>
-              예매
-            </Button>
-          </Grid>
-
-          <Grid item xs={12} sm={3} sx={mcGridItemMovie}>
-            <Box
-              sx={mcGridItemImageBox}
-              onMouseEnter={() => handleOnMouseEnter('image4')}
-              onMouseLeave={() => handleOnMouseLeave('image4')}
-            >
-              {isHovered.image4 ? (
-                <img
-                  src='/images/main_image_04.jpg'
-                  alt={movie[3].title}
-                  onMouseEnter={handleOnMouseEnter}
-                  onMouseLeave={handleOnMouseLeave}
-                  style={mcGridItemImageOverlay}
-                />
-              ) : (
-                <img
-                  src='/images/main_image_04.jpg'
-                  alt={movie[3].title}
-                  style={mcGridItemImage}
-                />
-              )}
-              {isHovered.image4 && (
-                <Typography sx={mcImageText}>
-                  {movie[3].summaryTitle}
-                  <br />
-                  <br />
-                  {movie[3].summaryContents}
-                </Typography>
-              )}
-            </Box>
-            <Box sx={mcGridItemInnerBox}>
-              <img
-                src='/images/15_46x46.png'
-                alt={movie[0].ageRating}
-                style={mcGridItemLogoImage}
-              />
-              <Typography sx={{ fontSize: '20px' }}>
-                {movie[3].title}
-              </Typography>
-            </Box>
-            <Box sx={mcGridItemBoxTypo}>
-              <Typography sx={mcTypo}>
-                예매율 {movie[3].reservationRate}%
-              </Typography>
-              &nbsp;
-              <Typography sx={{ ...mcTypo, color: '#C0C0C0' }}>|</Typography>
-              &nbsp;
-              <Typography sx={mcTypo}>
-                개봉일 {movie[3].releaseDate.replace(/-/g, '.')}
-              </Typography>
-            </Box>
-            <Button variant='contained' disableRipple sx={mcButton}>
-              예매
-            </Button>
-          </Grid>
+              </Box>
+              <Button variant='contained' disableRipple sx={mcButton}>
+                예매
+              </Button>
+            </Grid>
+          ))}
         </Grid>
       </Box>
     </>

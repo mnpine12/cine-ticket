@@ -69,7 +69,7 @@ export const MovieComingSoon = () => {
   useEffect(() => {
     const initialHoverState = movie.map(() => ({ hovered: false }));
     setIsHovered(initialHoverState);
-  }, [movie]);
+  }, []);
 
   const handleOnMouseEnter = (index) => {
     setIsHovered((prevIsHovered) => {
@@ -123,7 +123,10 @@ export const MovieComingSoon = () => {
               </Box>
               <Box sx={mcsGridItemInnerBox}>
                 <img
-                  src='/images/15_46x46.png'
+                  src={`/images/${movie[index].ageRating.replace(
+                    '세',
+                    '',
+                  )}_46x46.png`}
                   alt={movie[index].ageRating}
                   style={mcsGridItemLogoImage}
                 />
@@ -131,13 +134,13 @@ export const MovieComingSoon = () => {
               </Box>
               <Box sx={mcsGridItemBoxTypo}>
                 <Typography sx={mcsTypo}>
-                  예매율 {movie[0].reservationRate}%
+                  예매율 {movie[index].reservationRate}%
                 </Typography>
                 &nbsp;
                 <Typography sx={{ ...mcsTypo, color: '#C0C0C0' }}>|</Typography>
                 &nbsp;
                 <Typography sx={mcsTypo}>
-                  개봉일 {movie[0].releaseDate.replace(/-/g, '.')}
+                  개봉일 {movie[index].releaseDate.replace(/-/g, '.')}
                 </Typography>
               </Box>
               <Button variant='contained' disableRipple sx={mcsButton}>
