@@ -320,11 +320,14 @@ export const mlOuterBox = {
 export const mlBreadcrumbsBox = {
   width: '100%',
   height: '40px',
-  paddingLeft: '20rem',
   background: '#f8f8fa',
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
+};
+
+export const mlBreadcrumbs = {
+  paddingLeft: '10rem',
 };
 
 export const mlGridContainerText = {

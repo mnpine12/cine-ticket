@@ -14,6 +14,7 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import Header from '../../layout/Header';
 
 import {
+  mlBreadcrumbs,
   mlBreadcrumbsBox,
   mlContentsBox,
   mlGridContainerTabs,
@@ -50,6 +51,7 @@ export const MovieList = () => {
           <Breadcrumbs
             aria-label='breadcrumb'
             separator={<NavigateNextIcon fontSize='small' />}
+            sx={mlBreadcrumbs}
           >
             <Link
               color='inherit'
