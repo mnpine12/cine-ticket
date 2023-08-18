@@ -1,6 +1,6 @@
 // import { useNavigate } from 'react-router-dom';
 import { useState } from 'react';
-import { Header } from './Header';
+import Header from './Header';
 
 import Link from '@mui/material/Link';
 import Box from '@mui/material/Box';

@@ -1,4 +1,5 @@
-import { useEffect, useState } from 'react';
+import React from 'react';
+import { memo, useEffect, useState } from 'react';
 import { Link as RouterLink } from 'react-router-dom';
 
 import AppBar from '@mui/material/AppBar';
@@ -27,7 +28,7 @@ import {
 
 const defaultTheme = createTheme();
 
-export const Header = (props) => {
+const Header = (props) => {
   const { type } = props;
 
   const [headerToolbarType, setHeaderToolbarType] =
@@ -97,7 +98,11 @@ export const Header = (props) => {
         </Toolbar>
         <Box sx={headerBoxType}>
           <MenuList sx={headerMenuListType}>
-            <MenuItem component={RouterLink} to='/movie' sx={headerMenuItem}>
+            <MenuItem
+              component={RouterLink}
+              to='/movie/boxOffice'
+              sx={headerMenuItem}
+            >
               <ListItemText primaryTypographyProps={headerListItemText}>
                 영화
               </ListItemText>
@@ -109,9 +114,9 @@ export const Header = (props) => {
             </MenuItem>
             <MenuItem component={RouterLink} to='/' sx={headerMenuItem}>
               {type === 'none' ? (
-                <img src='images/gigabox.png' alt='기가박스' />
+                <img src='/images/gigabox.png' alt='기가박스' />
               ) : (
-                <img src='images/gigabox_main.png' alt='기가박스' />
+                <img src='/images/gigabox_main.png' alt='기가박스' />
               )}
             </MenuItem>
             <MenuItem sx={headerMenuItem}>
@@ -130,3 +135,5 @@ export const Header = (props) => {
     </ThemeProvider>
   );
 };
+
+export default memo(Header);
