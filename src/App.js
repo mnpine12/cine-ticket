@@ -10,6 +10,7 @@ import { MovieDetail } from './components/movie/MovieDetail';
 import { MovieChart } from './components/movie/MovieChart';
 import { MovieComingSoon } from './components/movie/MovieComingSoon';
 import { MovieList } from './components/movie/MovieList';
+import { BookingMain } from './components/booking/BookingMain';
 
 ///movies/:id/detail 추후에 경로 수정
 function App() {
@@ -24,6 +25,7 @@ function App() {
           <Route path='boxOffice' element={<MovieChart />} />
           <Route path='comingSoon' element={<MovieComingSoon />} />
         </Route>
+        <Route path='/booking' element={<BookingMain />}></Route>
         <Route path='/detail' element={<MovieDetail />}></Route>
       </Routes>
     </BrowserRouter>

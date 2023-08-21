@@ -19,7 +19,7 @@ import {
   mdDataGridItemInfo,
   mdDataGridItemTitle,
   mdButton,
-} from '../../css/styles';
+} from '../../css/MovieStyles';
 
 import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
 import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';

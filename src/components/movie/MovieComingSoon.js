@@ -19,7 +19,7 @@ import {
   mcsOuterBox,
   mcsTitleTypo,
   mcsTypo,
-} from '../../css/styles';
+} from '../../css/MovieStyles';
 
 const movie = [
   {
