@@ -26,7 +26,7 @@ import {
   mbLinkItemBox,
   mbOuterBox,
   mbContGridItemImageOverlay,
-} from '../css/styles';
+} from '../css/LayoutStyles';
 
 const Search = styled('div')(({ theme }) => ({
   position: 'relative',
@@ -213,7 +213,7 @@ export const Main = () => {
             <Box sx={mbLinkItemBox}>
               <img src='/images/icon2.png' alt='icon2' />
               &nbsp;&nbsp;
-              <Link href='#' color={'#ffffff'}>
+              <Link href='/movie/boxOffice' color={'#ffffff'}>
                 박스오피스
               </Link>
             </Box>

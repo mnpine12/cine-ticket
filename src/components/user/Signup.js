@@ -12,19 +12,16 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import ToggleButton from '@mui/material/ToggleButton';
 import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
+import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
 
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import dayjs from 'dayjs';
 import 'dayjs/locale/ko';
+import { sgContainerBox, sgGridStyle } from '../../css/UserStyles';
 
-import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-// ######################## import 구분 ########################
 const defaultTheme = createTheme();
-const gridStyle = {
-  mb: 1,
-};
 
 export const Signup = () => {
   const [birth, setBirth] = useState(dayjs().locale('ko'));
@@ -41,9 +38,6 @@ export const Signup = () => {
   const [phoneNumberError, setPhoneNumberError] = useState(false);
   const [emailError, setEmailError] = useState(false);
 
-  // ###################### 함수 구분 ##########################
-
-  // 연락처 입력
   const handlePhoneNumberChange = (event) => {
     const inputValue = event.target.value;
     const formattedValue = formatPhoneNumberNumber(inputValue);
@@ -52,7 +46,6 @@ export const Signup = () => {
     }
   };
 
-  // 연락처 입력값 포맷
   const formatPhoneNumberNumber = (value) => {
     value = value.replace(/\D/g, '');
     let formattedValue = '';
@@ -125,12 +118,10 @@ export const Signup = () => {
     }
   };
 
-  // 성별 저장
   const handleChangeGender = (event, newGender) => {
     setGender(newGender);
   };
 
-  // 가입하기 제출
   const handleSubmit = (event) => {
     event.preventDefault();
     const data = new FormData(event.currentTarget);
@@ -139,19 +130,12 @@ export const Signup = () => {
       password: data.get('password'),
     });
   };
-  // ###################### 함수 구분 ##########################
+
   return (
     <ThemeProvider theme={defaultTheme}>
       <Container component='main' maxWidth='xs'>
         <CssBaseline />
-        <Box
-          sx={{
-            marginTop: 8,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-        >
+        <Box sx={sgContainerBox}>
           <Avatar sx={{ m: 1, background: '#1976d2' }}>
             <LockOutlinedIcon />
           </Avatar>
@@ -165,7 +149,7 @@ export const Signup = () => {
             sx={{ mt: 5 }}
           >
             <Grid container spacing={2}>
-              <Grid item xs={12} sx={gridStyle}>
+              <Grid item xs={12} sx={sgGridStyle}>
                 <TextField
                   required
                   fullWidth
@@ -179,7 +163,7 @@ export const Signup = () => {
                   onBlur={() => handleFieldBlur('account')}
                 />
               </Grid>
-              <Grid item xs={12} sx={gridStyle}>
+              <Grid item xs={12} sx={sgGridStyle}>
                 <TextField
                   required
                   fullWidth
@@ -193,7 +177,7 @@ export const Signup = () => {
                   onBlur={() => handleFieldBlur('password')}
                 />
               </Grid>
-              <Grid item xs={12} sm={6} sx={gridStyle}>
+              <Grid item xs={12} sm={6} sx={sgGridStyle}>
                 <TextField
                   autoComplete='name'
                   name='name'
@@ -207,7 +191,7 @@ export const Signup = () => {
                   onBlur={() => handleFieldBlur('name')}
                 />
               </Grid>
-              <Grid item xs={12} sm={6} sx={gridStyle}>
+              <Grid item xs={12} sm={6} sx={sgGridStyle}>
                 <LocalizationProvider dateAdapter={AdapterDayjs}>
                   <DatePicker
                     label='생년월일'
@@ -219,7 +203,7 @@ export const Signup = () => {
                   />
                 </LocalizationProvider>
               </Grid>
-              <Grid item xs={12} sm={12} sx={gridStyle}>
+              <Grid item xs={12} sm={12} sx={sgGridStyle}>
                 <ToggleButtonGroup
                   color='primary'
                   value={gender}
@@ -232,7 +216,7 @@ export const Signup = () => {
                   <ToggleButton value='none'>선택안함</ToggleButton>
                 </ToggleButtonGroup>
               </Grid>
-              <Grid item xs={12} sm={12} sx={gridStyle}>
+              <Grid item xs={12} sm={12} sx={sgGridStyle}>
                 <TextField
                   autoComplete='email'
                   type='email'
@@ -247,7 +231,7 @@ export const Signup = () => {
                   onBlur={() => handleFieldBlur('email')}
                 />
               </Grid>
-              <Grid item xs={12} sm={12} sx={gridStyle}>
+              <Grid item xs={12} sm={12} sx={sgGridStyle}>
                 <TextField
                   required
                   fullWidth

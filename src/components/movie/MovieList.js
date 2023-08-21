@@ -25,7 +25,7 @@ import {
   mlMenuItem,
   mlMenuItemDisable,
   mlOuterBox,
-} from '../../css/styles';
+} from '../../css/MovieStyles';
 
 export const MovieList = () => {
   const [boxOfficeSelected, setBoxOfficeSelected] = useState(true);

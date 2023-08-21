@@ -11,7 +11,6 @@ import MenuItem from '@mui/material/MenuItem';
 import ListItemText from '@mui/material/ListItemText';
 import Box from '@mui/material/Box';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import '../css/styles';
 
 import {
   headerLink,
@@ -24,7 +23,7 @@ import {
   headerToolbar_Black,
   headerMenuList_Black,
   headerBox_Black,
-} from '../css/styles';
+} from '../css/LayoutStyles';
 
 const defaultTheme = createTheme();
 
@@ -107,7 +106,7 @@ const Header = (props) => {
                 영화
               </ListItemText>
             </MenuItem>
-            <MenuItem sx={headerMenuItem}>
+            <MenuItem component={RouterLink} to='/booking' sx={headerMenuItem}>
               <ListItemText primaryTypographyProps={headerListItemText}>
                 예매
               </ListItemText>
