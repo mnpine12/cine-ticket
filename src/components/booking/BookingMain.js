@@ -18,6 +18,7 @@ import {
   bmTitleTypo,
   bmTitleTypoBox,
 } from '../../css/BookingStyles';
+import { BodyContents } from './BodyContents';
 
 export const BookingMain = () => {
   const cachedHeader = useMemo(() => <Header type={'none'} />, []);
@@ -46,6 +47,7 @@ export const BookingMain = () => {
           <Typography sx={bmTitleTypo}>빠른예매</Typography>
         </Box>
         <HeaderCalendar />
+        <BodyContents />
       </Box>
     </>
   );

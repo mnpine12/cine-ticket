@@ -35,7 +35,13 @@ export const bmTitleTypo = {
   fontSize: '28px',
 };
 
-export const bmTopCalendarBox = {
+/******************************************/
+/* BookingMain CSS end */
+/******************************************/
+/* HeaderCalendar CSS start */
+/******************************************/
+
+export const hcTopCalendarBox = {
   width: '100%',
   height: '40px',
   margin: 0,
@@ -46,7 +52,7 @@ export const bmTopCalendarBox = {
   display: 'flex',
 };
 
-export const bmTopCalendarButton = {
+export const hcTopCalendarButton = {
   minWidth: '10px',
   height: '39px',
   color: '#898989',
@@ -55,7 +61,7 @@ export const bmTopCalendarButton = {
   },
 };
 
-export const bmListDates = {
+export const hcListDates = {
   width: '100%',
   height: '100%',
   display: 'flex',
@@ -66,7 +72,7 @@ export const bmListDates = {
   padding: 0,
 };
 
-export const bmListDatesItemButton = {
+export const hcListDatesItemButton = {
   fontFamily: 'NanumBarunGothic, sans-serif',
   fontSize: '15px',
   padding: '0', // List 안에 꽉차도록 조절
@@ -76,4 +82,144 @@ export const bmListDatesItemButton = {
   display: 'flex', // 이 아래로 글자 가운데 정렬
   alignItems: 'center',
   justifyContent: 'center',
+  '&:hover': {
+    borderBottom: '2px solid #503396',
+  },
+  '&.Mui-selected': {
+    background: '#f5f5f5',
+    borderBottom: '2px solid #503396',
+    '&:hover': {
+      background: '#f5f5f5',
+    },
+  },
 };
+
+/******************************************/
+/* HeaderCalendar CSS end */
+/******************************************/
+/* BodyContents CSS start */
+/******************************************/
+
+export const bcContainerBox = {
+  width: '100%',
+  height: '530px',
+  display: 'flex',
+};
+
+/******************************************/
+/* BodyContents CSS end */
+/******************************************/
+/* BodyMovie CSS start */
+/******************************************/
+
+export const bcmContainerBox = {
+  width: '270px',
+  border: '1px solid #d8d9db',
+  borderRight: 'none',
+  padding: '0px 20px 17px 20px',
+};
+
+export const bcmInnerContainerBox = {
+  width: '100%',
+  height: '100%',
+  background: 'white',
+};
+
+export const bcmGridItemTypo = {
+  width: '100%',
+  height: '38px',
+  marginTop: '5px',
+};
+
+export const bcmGridItemList = {
+  width: '100%',
+  height: '38px',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+  margin: 0,
+  padding: 0,
+};
+
+export const bcmListItemButton = {
+  height: '100%',
+  padding: 0,
+  boxSizing: 'border-box',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderTop: '1px solid #d8d9db',
+  borderLeft: '1px solid #d8d9db',
+  borderRight: '1px solid #d8d9db',
+  borderBottom: '1px solid #151515',
+  '&:hover': {
+    background: 'none',
+  },
+  '&.Mui-selected': {
+    background: 'none',
+    border: '1px solid #151515',
+    borderBottom: 'none',
+    '&:hover': {
+      background: 'none',
+    },
+  },
+};
+
+export const bcmGridItem = {
+  marginTop: '10px',
+};
+
+export const bcmMoviesListItem = {
+  height: '28px',
+  padding: '3px 3px 3px 3px',
+  boxSizing: 'border-box',
+  display: 'flex',
+  alignItems: 'center',
+  fontSize: '14px',
+  '&:hover': {
+    background: 'inherit',
+  },
+  '&.Mui-selected': {
+    background: '#666666',
+    color: '#ffffff',
+    '&:hover': {
+      background: '#666666',
+    },
+  },
+};
+
+export const bcmMovieListButton = {
+  width: '20px',
+  height: '20px',
+  marginRight: '5px',
+};
+
+/******************************************/
+/* BodyMovie CSS end */
+/******************************************/
+/* BodyPlace CSS start */
+/******************************************/
+
+export const bcpContainerBox = {
+  width: '350px',
+  height: '100%',
+  border: '1px solid #d8d9db',
+};
+
+/******************************************/
+/* BodyPlace CSS end */
+/******************************************/
+/* BodyTime CSS start */
+/******************************************/
+
+export const bctContainerBox = {
+  width: '480px',
+  height: '100%',
+  border: '1px solid #d8d9db',
+  borderLeft: 'none',
+};
+
+/******************************************/
+/* BodyTime CSS end */
+/******************************************/

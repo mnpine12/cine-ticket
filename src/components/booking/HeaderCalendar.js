@@ -1,6 +1,9 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import List from '@mui/material/List';
+import ListItemButton from '@mui/material/ListItemButton';
+
 import { DatePicker } from '@mui/x-date-pickers';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -12,16 +15,14 @@ import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 import {
-  bmListDates,
-  bmListDatesItemButton,
-  bmTopCalendarBox,
-  bmTopCalendarButton,
+  hcListDates,
+  hcListDatesItemButton,
+  hcTopCalendarBox,
+  hcTopCalendarButton,
 } from '../../css/BookingStyles';
 
-import { Grid, List, ListItemButton } from '@mui/material';
-
 // MUI datepicker 커스터마이징
-function ButtonField(props) {
+const ButtonField = (props) => {
   const { setOpen, id, disabled, InputProps: { ref } = {} } = props;
 
   return (
@@ -29,16 +30,16 @@ function ButtonField(props) {
       id={id}
       disabled={disabled}
       ref={ref}
-      sx={bmTopCalendarButton}
+      sx={hcTopCalendarButton}
       onClick={() => setOpen?.((prev) => !prev)}
     >
       <CalendarMonthIcon sx={{ padding: 0 }} />
     </Button>
   );
-}
+};
 
 // MUI datepicker 커스터마이징
-function ButtonDatePicker(props) {
+const ButtonDatePicker = (props) => {
   const [open, setOpen] = useState(false);
   const isYesterday = props.isYesterday;
 
@@ -53,7 +54,7 @@ function ButtonDatePicker(props) {
       shouldDisableDate={isYesterday}
     />
   );
-}
+};
 
 const getTwoWeeksFromToday = () => {
   const today = dayjs();
@@ -93,7 +94,6 @@ export const HeaderCalendar = () => {
   const handleDayListClick = (date, index) => {
     setSelectedDayIndex(index);
     setSelectedDay(date);
-    console.log(date);
   };
 
   const handleCalendarDateClick = (newDate) => {
@@ -101,11 +101,12 @@ export const HeaderCalendar = () => {
   };
 
   return (
-    <Box sx={bmTopCalendarBox}>
-      <Button disableRipple={true} sx={bmTopCalendarButton}>
+    <Box sx={hcTopCalendarBox}>
+      <Button disableRipple={true} sx={hcTopCalendarButton}>
         <NavigateBeforeIcon sx={{ padding: 0 }} />
       </Button>
-      <List sx={bmListDates}>
+
+      <List sx={hcListDates}>
         {dates.map((date, index) => (
           <ListItemButton
             key={index}
@@ -113,19 +114,20 @@ export const HeaderCalendar = () => {
             selected={selectedDayIndex === index}
             onClick={() => handleDayListClick(date, index)}
             sx={{
-              ...bmListDatesItemButton,
+              ...hcListDatesItemButton,
               color: datesText[index].includes('일')
                 ? 'red'
                 : datesText[index].includes('토')
                 ? 'blue'
                 : 'inherit',
             }}
+            disableRipple
           >
             {datesText[index]}
           </ListItemButton>
         ))}
       </List>
-      <Button disableRipple={true} sx={bmTopCalendarButton}>
+      <Button disableRipple={true} sx={hcTopCalendarButton}>
         <NavigateNextIcon sx={{ padding: 0 }} />
       </Button>
       <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale='ko'>
