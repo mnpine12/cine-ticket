@@ -36,13 +36,30 @@ export const bmTitleTypo = {
 };
 
 export const bmTopCalendarBox = {
+  width: '100%',
   height: '40px',
-  borderTop: '1px solid #555',
+  borderTop: '1px solid #555555',
   borderLeft: '1px solid #d8d9db',
   borderRight: '1px solid #d8d9db',
 };
 
 export const bmTopCalendarButton = {
   height: '39px',
-  color: '#444',
+  color: '#898989',
+  '&:hover': {
+    background: 'none',
+  },
+};
+
+export const bmListDates = {
+  display: 'flex',
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  margin: 0,
+  padding: 0,
+};
+
+export const bmListDatesItemButton = {
+  height: '39px',
+  fontSize: '12px',
 };
