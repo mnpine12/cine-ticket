@@ -1,7 +1,9 @@
-// import { useState } from 'react';
-
+import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import List from '@mui/material/List';
+import ListItemButton from '@mui/material/ListItemButton';
+
 import { DatePicker } from '@mui/x-date-pickers';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
@@ -10,28 +12,130 @@ import 'dayjs/locale/ko';
 
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
+import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
-import { bmTopCalendarBox, bmTopCalendarButton } from '../../css/BookingStyles';
+import {
+  hcListDates,
+  hcListDatesItemButton,
+  hcTopCalendarBox,
+  hcTopCalendarButton,
+} from '../../css/BookingStyles';
 
-export const HeaderCalendar = () => {
+// MUI datepicker 커스터마이징
+const ButtonField = (props) => {
+  const { setOpen, id, disabled, InputProps: { ref } = {} } = props;
+
+  return (
+    <Button
+      id={id}
+      disabled={disabled}
+      ref={ref}
+      sx={hcTopCalendarButton}
+      onClick={() => setOpen?.((prev) => !prev)}
+    >
+      <CalendarMonthIcon sx={{ padding: 0 }} />
+    </Button>
+  );
+};
+
+// MUI datepicker 커스터마이징
+const ButtonDatePicker = (props) => {
+  const [open, setOpen] = useState(false);
+  const isYesterday = props.isYesterday;
+
+  return (
+    <DatePicker
+      slots={{ field: ButtonField, ...props.slots }}
+      slotProps={{ field: { setOpen } }}
+      {...props}
+      open={open}
+      onClose={() => setOpen(false)}
+      onOpen={() => setOpen(true)}
+      shouldDisableDate={isYesterday}
+    />
+  );
+};
+
+const getTwoWeeksFromToday = () => {
   const today = dayjs();
+  const twoWeeksLater = today.add(2, 'week');
+  const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
+
+  const dates = [];
+  const datesText = [];
+  let currentDate = today.clone();
+  while (currentDate.isBefore(twoWeeksLater)) {
+    const formattedDate = currentDate.format('YYYY-MM-DD');
+    const newFormattedDate = formattedDate.split('-');
+    const dayOfWeek = daysOfWeek[currentDate.day()];
+    const formattedDateWithDayText = `${newFormattedDate[2]}·${dayOfWeek}`;
+
+    datesText.push(formattedDateWithDayText);
+    dates.push(formattedDate);
+    currentDate = currentDate.add(1, 'day');
+  }
+
+  return { dates, datesText };
+};
+
+// HeaderCalendar
+export const HeaderCalendar = () => {
+  const today = dayjs().format('YYYY-MM-DD');
+  const [selectedCalendarDate, setSelectedCalendarDate] = useState(null);
+  const [selectedDay, setSelectedDay] = useState(today);
+  const [selectedDayIndex, setSelectedDayIndex] = useState(0);
+
+  const { dates, datesText } = getTwoWeeksFromToday();
 
   const isYesterday = (date) => {
-    return dayjs(dayjs(date).format('YYYY-MM-DD')).isBefore(
-      today.format('YYYY-MM-DD'),
-    );
+    return dayjs(dayjs(date).format('YYYY-MM-DD')).isBefore(today);
+  };
+
+  const handleDayListClick = (date, index) => {
+    setSelectedDayIndex(index);
+    setSelectedDay(date);
+  };
+
+  const handleCalendarDateClick = (newDate) => {
+    setSelectedCalendarDate(newDate.format('YYYY-MM-DD'));
   };
 
   return (
-    <Box sx={bmTopCalendarBox}>
-      <Button disableRipple={true} sx={bmTopCalendarButton}>
-        <NavigateBeforeIcon />
+    <Box sx={hcTopCalendarBox}>
+      <Button disableRipple={true} sx={hcTopCalendarButton}>
+        <NavigateBeforeIcon sx={{ padding: 0 }} />
       </Button>
-      <Button disableRipple={true} sx={bmTopCalendarButton}>
-        <NavigateNextIcon />
+
+      <List sx={hcListDates}>
+        {dates.map((date, index) => (
+          <ListItemButton
+            key={index}
+            value={selectedDay}
+            selected={selectedDayIndex === index}
+            onClick={() => handleDayListClick(date, index)}
+            sx={{
+              ...hcListDatesItemButton,
+              color: datesText[index].includes('일')
+                ? 'red'
+                : datesText[index].includes('토')
+                ? 'blue'
+                : 'inherit',
+            }}
+            disableRipple
+          >
+            {datesText[index]}
+          </ListItemButton>
+        ))}
+      </List>
+      <Button disableRipple={true} sx={hcTopCalendarButton}>
+        <NavigateNextIcon sx={{ padding: 0 }} />
       </Button>
       <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale='ko'>
-        <DatePicker defaultValue={today} shouldDisableDate={isYesterday} />
+        <ButtonDatePicker
+          value={selectedCalendarDate}
+          onChange={(newDate) => handleCalendarDateClick(newDate)}
+          isYesterday={isYesterday}
+        />
       </LocalizationProvider>
     </Box>
   );
