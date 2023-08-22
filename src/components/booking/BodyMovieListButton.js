@@ -1,5 +1,8 @@
 import ListItemButton from '@mui/material/ListItemButton';
-import { bcmMoviesListItem, bcmMovieListButton } from '../../css/BookingStyles';
+import {
+  bcmMoviesListButton,
+  bcmMovieListButtonImg,
+} from '../../css/BookingStyles';
 import { useEffect, useState } from 'react';
 
 export const BodyMovieListButton = ({
@@ -9,7 +12,7 @@ export const BodyMovieListButton = ({
   handleMovieClick,
   ageRating,
 }) => {
-  const [imgUrl, setImgUrl] = useState('/image/');
+  const [imgUrl, setImgUrl] = useState('/images/ALL_46x46.png');
   useEffect(() => {
     if (ageRating === 'ALL') {
       setImgUrl('/images/ALL_46x46.png');
@@ -28,10 +31,10 @@ export const BodyMovieListButton = ({
       selected={selectedMovies.includes(index)}
       value={index}
       onClick={handleOnClick}
-      sx={bcmMoviesListItem}
+      sx={bcmMoviesListButton}
       disableRipple
     >
-      <img src={imgUrl} alt={ageRating} style={bcmMovieListButton} />
+      <img src={imgUrl} alt={ageRating} style={bcmMovieListButtonImg} />
       {movie}
     </ListItemButton>
   );

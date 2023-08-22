@@ -102,7 +102,7 @@ export const hcListDatesItemButton = {
 
 export const bcContainerBox = {
   width: '100%',
-  height: '530px',
+  height: '545px',
   display: 'flex',
 };
 
@@ -114,9 +114,10 @@ export const bcContainerBox = {
 
 export const bcmContainerBox = {
   width: '270px',
+  height: '100%',
   border: '1px solid #d8d9db',
   borderRight: 'none',
-  padding: '0px 20px 17px 20px',
+  padding: '0px 20px 0px 20px',
 };
 
 export const bcmInnerContainerBox = {
@@ -128,22 +129,25 @@ export const bcmInnerContainerBox = {
 export const bcmGridItemTypo = {
   width: '100%',
   height: '38px',
-  marginTop: '5px',
+  fontSize: '18px',
+  display: 'flex',
+  alignItems: 'center',
 };
 
 export const bcmGridItemList = {
   width: '100%',
   height: '38px',
+  margin: 0,
+  padding: 0,
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-between',
-  margin: 0,
-  padding: 0,
 };
 
 export const bcmListItemButton = {
-  height: '100%',
+  height: '30px',
+  fontSize: '14px',
   padding: 0,
   boxSizing: 'border-box',
   display: 'flex',
@@ -164,13 +168,56 @@ export const bcmListItemButton = {
       background: 'none',
     },
   },
+  fontFamily: 'NanumBarunGothic, sans-serif',
 };
 
 export const bcmGridItem = {
   marginTop: '10px',
 };
 
-export const bcmMoviesListItem = {
+export const bcmGridListItemImage = {
+  maxHeight: '320px',
+  overflow: 'auto',
+};
+
+export const bcmGridItemImageBox_none = {
+  height: '90px',
+  marginTop: '5px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  textAlign: 'center',
+  border: '1px solid #d8d9db',
+};
+
+export const bcmGridItemImgTypo = {
+  fontSize: '14px',
+  fontFamily: 'NanumBarunGothic, sans-serif',
+};
+
+export const bcmGridItemImageBox = {
+  width: '100%',
+  height: '90px',
+  marginTop: 'top',
+  display: 'flex',
+  alignItems: 'center',
+  textAlign: 'center',
+};
+
+export const bcmImage = {
+  width: '63px',
+  height: '100%',
+  border: '1px solid #d8d9db',
+  margin: 'auto',
+};
+
+/******************************************/
+/* BodyMovie CSS end */
+/******************************************/
+/* BodyMovieListButton CSS start */
+/******************************************/
+
+export const bcmMoviesListButton = {
   height: '28px',
   padding: '3px 3px 3px 3px',
   boxSizing: 'border-box',
@@ -187,16 +234,17 @@ export const bcmMoviesListItem = {
       background: '#666666',
     },
   },
+  fontFamily: 'NanumBarunGothic, sans-serif',
 };
 
-export const bcmMovieListButton = {
+export const bcmMovieListButtonImg = {
   width: '20px',
   height: '20px',
   marginRight: '5px',
 };
 
 /******************************************/
-/* BodyMovie CSS end */
+/* BodyMovieListButton CSS end */
 /******************************************/
 /* BodyPlace CSS start */
 /******************************************/
