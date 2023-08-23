@@ -368,7 +368,6 @@ export const bcpGridItemImageBox_none = {
 export const bcpGridItemImgTypo = {
   fontSize: '14px',
   fontFamily: 'NanumBarunGothic, sans-serif',
-
   textAlign: 'center',
 };
 
@@ -379,8 +378,15 @@ export const bcpGridItemImage = {
 };
 
 export const bcpImage = {
-  width: '63px',
+  width: '90px',
   height: '90px',
+  border: '1px solid #d8d9db',
+  borderRadius: '50%',
+  background: '#ebebeb',
+  color: '#151515',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 };
 
 /******************************************/
