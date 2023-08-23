@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import List from '@mui/material/List';
+import ListItemButton from '@mui/material/ListItemButton';
 
 import {
   bcmContainerBox,
@@ -15,11 +18,11 @@ import {
   bcmInnerContainerBox,
   bcmListItemButton,
 } from '../../css/BookingStyles';
-import { Grid, List, ListItemButton } from '@mui/material';
+
 import { BodyMovieListButton } from './BodyMovieListButton';
 
 const movies = [
-  { title: '오펜하이머', ageRating: '15세' },
+  { title: '오펜하이머', ageRating: '15세', img: 'main_image_01.jpg' },
   { title: '메가로돈2', ageRating: '15세' },
   { title: '콘크리트 유토피아', ageRating: '15세' },
   { title: '밀수', ageRating: '15세' },
@@ -33,19 +36,17 @@ const movies = [
   { title: '고대 이집트 문명의 빛나는 유산', ageRating: 'ALL' },
   { title: '스파이더맨: 어크로스 더 유니버스', ageRating: 'ALL' },
   { title: '강변의 무코리타', ageRating: '12세' },
-  { title: '지옥만세', ageRating: '12세' },
+  { title: '지옥만세', ageRating: '12세', img: 'poster_00.jpg' },
 ];
 
 export const BodyMovie = () => {
   const [selectedMenu, setSelectedMenu] = useState(0);
   const [selectedMovies, setSelectedMovies] = useState([]);
-  const [imgUrl, setImgUrl] = useState('/images/poster_00.jpg');
 
   //영화 선택
   const handleMovieClick = (index) => {
     if (!selectedMovies.includes(index) && selectedMovies.length < 3) {
       setSelectedMovies([...selectedMovies, index]);
-      setImgUrl('/images/poster_00.jpg');
     } else {
       setSelectedMovies(selectedMovies.filter((item) => item !== index));
     }
@@ -112,7 +113,7 @@ export const BodyMovie = () => {
                     <>
                       <Grid item xs={12} sm={4}>
                         <img
-                          src={imgUrl}
+                          src={'/images/poster_0' + selectedMovies[0] + '.jpg'}
                           alt={selectedMovies[0]}
                           style={bcmImage}
                         />
@@ -136,14 +137,14 @@ export const BodyMovie = () => {
                     <>
                       <Grid item xs={12} sm={4}>
                         <img
-                          src={imgUrl}
+                          src={'/images/poster_0' + selectedMovies[0] + '.jpg'}
                           alt={selectedMovies[0]}
                           style={bcmImage}
                         />
                       </Grid>
                       <Grid item xs={12} sm={4}>
                         <img
-                          src={imgUrl}
+                          src={'/images/poster_0' + selectedMovies[1] + '.jpg'}
                           alt={selectedMovies[1]}
                           style={bcmImage}
                         />
@@ -160,21 +161,21 @@ export const BodyMovie = () => {
                     <>
                       <Grid item xs={12} sm={4}>
                         <img
-                          src={imgUrl}
+                          src={'/images/poster_0' + selectedMovies[0] + '.jpg'}
                           alt={selectedMovies[0]}
                           style={bcmImage}
                         />
                       </Grid>
                       <Grid item xs={12} sm={4}>
                         <img
-                          src={imgUrl}
+                          src={'/images/poster_0' + selectedMovies[1] + '.jpg'}
                           alt={selectedMovies[1]}
                           style={bcmImage}
                         />
                       </Grid>
                       <Grid item xs={12} sm={4}>
                         <img
-                          src={imgUrl}
+                          src={'/images/poster_0' + selectedMovies[2] + '.jpg'}
                           alt={selectedMovies[2]}
                           style={bcmImage}
                         />
