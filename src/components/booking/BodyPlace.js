@@ -10,7 +10,6 @@ import {
   bcpCinemaListButton,
   bcpContainerBox,
   bcpGridItemImage,
-  bcpGridItemImageBox,
   bcpGridItemImageBox_none,
   bcpGridItemImgTypo,
   bcpGridItemList,
@@ -22,7 +21,6 @@ import {
   bcpPlacesListBox,
   bcpPlacesListButton,
 } from '../../css/BookingStyles';
-import { ListItem } from '@mui/material';
 
 export const BodyPlace = () => {
   const [selectedMenu, setSelectedMenu] = useState(0);
@@ -130,14 +128,12 @@ export const BodyPlace = () => {
                 </Typography>
               ) : (
                 <Grid container sx={bcpGridItemImage}>
-                  {selectedCinema === 1 ? (
+                  {selectedCinema === 0 ? (
                     <>
                       <Grid item xs={12} sm={4}>
-                        <img
-                          src={'/images/poster_none.png'}
-                          alt='강남'
-                          style={bcpImage}
-                        />
+                        <div style={bcpImage}>
+                          <Typography sx={bcpGridItemImgTypo}>강남</Typography>
+                        </div>
                       </Grid>
                       <Grid item xs={12} sm={4}>
                         <img
