@@ -98,6 +98,9 @@ export const HeaderCalendar = () => {
 
   const handleCalendarDateClick = (newDate) => {
     setSelectedCalendarDate(newDate.format('YYYY-MM-DD'));
+    setSelectedDayIndex(
+      dates.findIndex((date) => date === newDate.format('YYYY-MM-DD')),
+    );
   };
 
   return (
