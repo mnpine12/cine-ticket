@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 import {
   bcmContainerBox,
   bcmGridItem,
-  bcmGridItemImageBox,
+  bcmGridItemImage,
   bcmGridItemImageBox_none,
   bcmGridItemImgTypo,
   bcmGridItemList,
@@ -45,6 +45,7 @@ export const BodyMovie = () => {
   const handleMovieClick = (index) => {
     if (!selectedMovies.includes(index) && selectedMovies.length < 3) {
       setSelectedMovies([...selectedMovies, index]);
+      setImgUrl('/images/poster_00.jpg');
     } else {
       setSelectedMovies(selectedMovies.filter((item) => item !== index));
     }
@@ -106,46 +107,81 @@ export const BodyMovie = () => {
                   <br /> 목록에서 영화를 선택하세요.
                 </Typography>
               ) : (
-                <Box sx={bcmGridItemImageBox}>
+                <Grid container sx={bcmGridItemImage}>
                   {selectedMovies.length === 1 ? (
-                    <img
-                      src={imgUrl}
-                      alt={selectedMovies[0]}
-                      style={bcmImage}
-                    />
+                    <>
+                      <Grid item xs={12} sm={4}>
+                        <img
+                          src={imgUrl}
+                          alt={selectedMovies[0]}
+                          style={bcmImage}
+                        />
+                      </Grid>
+                      <Grid item xs={12} sm={4}>
+                        <img
+                          src='/images/poster_none.png'
+                          alt='선택되지 않음'
+                          style={bcmImage}
+                        />
+                      </Grid>
+                      <Grid item xs={12} sm={4}>
+                        <img
+                          src='/images/poster_none.png'
+                          alt='선택되지 않음'
+                          style={bcmImage}
+                        />
+                      </Grid>
+                    </>
                   ) : selectedMovies.length === 2 ? (
                     <>
-                      <img
-                        src={imgUrl}
-                        alt={selectedMovies[0]}
-                        style={bcmImage}
-                      />
-                      <img
-                        src={imgUrl}
-                        alt={selectedMovies[1]}
-                        style={bcmImage}
-                      />
+                      <Grid item xs={12} sm={4}>
+                        <img
+                          src={imgUrl}
+                          alt={selectedMovies[0]}
+                          style={bcmImage}
+                        />
+                      </Grid>
+                      <Grid item xs={12} sm={4}>
+                        <img
+                          src={imgUrl}
+                          alt={selectedMovies[1]}
+                          style={bcmImage}
+                        />
+                      </Grid>
+                      <Grid item xs={12} sm={4}>
+                        <img
+                          src='/images/poster_none.png'
+                          alt='선택되지 않음'
+                          style={bcmImage}
+                        />
+                      </Grid>
                     </>
                   ) : (
                     <>
-                      <img
-                        src={imgUrl}
-                        alt={selectedMovies[0]}
-                        style={bcmImage}
-                      />
-                      <img
-                        src={imgUrl}
-                        alt={selectedMovies[1]}
-                        style={bcmImage}
-                      />
-                      <img
-                        src={imgUrl}
-                        alt={selectedMovies[2]}
-                        style={bcmImage}
-                      />
+                      <Grid item xs={12} sm={4}>
+                        <img
+                          src={imgUrl}
+                          alt={selectedMovies[0]}
+                          style={bcmImage}
+                        />
+                      </Grid>
+                      <Grid item xs={12} sm={4}>
+                        <img
+                          src={imgUrl}
+                          alt={selectedMovies[1]}
+                          style={bcmImage}
+                        />
+                      </Grid>
+                      <Grid item xs={12} sm={4}>
+                        <img
+                          src={imgUrl}
+                          alt={selectedMovies[2]}
+                          style={bcmImage}
+                        />
+                      </Grid>
                     </>
                   )}
-                </Box>
+                </Grid>
               )}
             </Box>
           </Grid>

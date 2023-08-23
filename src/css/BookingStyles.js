@@ -195,20 +195,15 @@ export const bcmGridItemImgTypo = {
   fontFamily: 'NanumBarunGothic, sans-serif',
 };
 
-export const bcmGridItemImageBox = {
+export const bcmGridItemImage = {
   width: '100%',
   height: '90px',
-  marginTop: 'top',
-  display: 'flex',
-  alignItems: 'center',
-  textAlign: 'center',
+  margin: 'auto',
 };
 
 export const bcmImage = {
   width: '63px',
-  height: '100%',
-  border: '1px solid #d8d9db',
-  margin: 'auto',
+  height: '90px',
 };
 
 /******************************************/
