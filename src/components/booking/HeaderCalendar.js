@@ -56,6 +56,7 @@ const ButtonDatePicker = (props) => {
   );
 };
 
+// 헤더 캘린더 2주치 날짜 가져와서 목록 보여주기
 const getTwoWeeksFromToday = () => {
   const today = dayjs();
   const twoWeeksLater = today.add(2, 'week');
@@ -87,15 +88,18 @@ export const HeaderCalendar = () => {
 
   const { dates, datesText } = getTwoWeeksFromToday();
 
+  // 데이트피커 지난 날짜 선택 불가
   const isYesterday = (date) => {
     return dayjs(dayjs(date).format('YYYY-MM-DD')).isBefore(today);
   };
 
+  // 날짜 목록에서 날짜 선택시
   const handleDayListClick = (date, index) => {
     setSelectedDayIndex(index);
     setSelectedDay(date);
   };
 
+  // 데이트피커 클릭시 해당 날짜로 이동
   const handleCalendarDateClick = (newDate) => {
     setSelectedCalendarDate(newDate.format('YYYY-MM-DD'));
     setSelectedDayIndex(
@@ -105,7 +109,7 @@ export const HeaderCalendar = () => {
 
   return (
     <Box sx={hcTopCalendarBox}>
-      <Button disableRipple={true} sx={hcTopCalendarButton}>
+      <Button disableRipple sx={hcTopCalendarButton}>
         <NavigateBeforeIcon sx={{ padding: 0 }} />
       </Button>
 

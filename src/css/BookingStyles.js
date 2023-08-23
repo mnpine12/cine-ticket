@@ -42,7 +42,6 @@ export const bmTitleTypo = {
 /******************************************/
 
 export const hcTopCalendarBox = {
-  width: '100%',
   height: '40px',
   margin: 0,
   padding: 0,
@@ -250,6 +249,140 @@ export const bcpContainerBox = {
   border: '1px solid #d8d9db',
 };
 
+export const bcpInnerContainerBox = {
+  width: '300px',
+  height: '100%',
+  margin: 'auto',
+};
+
+export const bcpGridItemTypo = {
+  width: '100%',
+  height: '38px',
+  fontSize: '18px',
+  display: 'flex',
+  alignItems: 'center',
+};
+
+export const bcpGridItemList = {
+  width: '100%',
+  height: '38px',
+  margin: 0,
+  padding: 0,
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+  justifyContent: 'space-between',
+};
+
+export const bcpListItemButton = {
+  height: '30px',
+  fontSize: '14px',
+  padding: 0,
+  boxSizing: 'border-box',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  borderTop: '1px solid #d8d9db',
+  borderLeft: '1px solid #d8d9db',
+  borderRight: '1px solid #d8d9db',
+  borderBottom: '1px solid #151515',
+  '&:hover': {
+    background: 'none',
+  },
+  '&.Mui-selected': {
+    background: 'none',
+    border: '1px solid #151515',
+    borderBottom: 'none',
+    '&:hover': {
+      background: 'none',
+    },
+  },
+  fontFamily: 'NanumBarunGothic, sans-serif',
+};
+
+export const bcpPlacesListBox = {
+  width: '100%',
+  height: '335px',
+  marginTop: '10px',
+  display: 'flex',
+};
+
+export const bcpPlacesList = {
+  width: '100%',
+};
+
+export const bcpCinemaList = {
+  width: '100%',
+  borderLeft: '1px solid #d8d9db',
+};
+
+export const bcpPlacesListButton = {
+  width: '100%',
+  height: '28px',
+  boxSizing: 'border-box',
+  display: 'flex',
+  alignItems: 'center',
+  fontSize: '14px',
+  '&:hover': {
+    background: 'none',
+  },
+  '&.Mui-selected': {
+    background: '#ebebeb',
+    color: '#151515',
+    '&:hover': {
+      background: '#ebebeb',
+    },
+  },
+  fontFamily: 'NanumBarunGothic, sans-serif',
+};
+
+export const bcpCinemaListButton = {
+  width: '100%',
+  height: '28px',
+  boxSizing: 'border-box',
+  display: 'flex',
+  alignItems: 'center',
+  fontSize: '14px',
+  '&:hover': {
+    background: 'none',
+  },
+  '&.Mui-selected': {
+    background: '#666666',
+    color: '#ffffff',
+    '&:hover': {
+      background: '#666666',
+    },
+  },
+  fontFamily: 'NanumBarunGothic, sans-serif',
+};
+
+export const bcpGridItemImageBox_none = {
+  width: '100%',
+  height: '90px',
+  marginTop: '15px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+};
+
+export const bcpGridItemImgTypo = {
+  fontSize: '14px',
+  fontFamily: 'NanumBarunGothic, sans-serif',
+
+  textAlign: 'center',
+};
+
+export const bcpGridItemImage = {
+  width: '100%',
+  height: '90px',
+  margin: 'auto',
+};
+
+export const bcpImage = {
+  width: '63px',
+  height: '90px',
+};
+
 /******************************************/
 /* BodyPlace CSS end */
 /******************************************/
@@ -261,6 +394,78 @@ export const bctContainerBox = {
   height: '100%',
   border: '1px solid #d8d9db',
   borderLeft: 'none',
+};
+
+export const bctInnerContainerBox = {
+  width: '100%',
+  height: '100%',
+};
+
+export const bctGridItemTypo = {
+  width: '100%',
+  height: '38px',
+  marginLeft: '10px',
+  fontSize: '18px',
+  display: 'flex',
+  alignItems: 'center',
+};
+
+/******************************************/
+/* BodyTime CSS end */
+/******************************************/
+/* HeaderTime CSS start */
+/******************************************/
+
+export const hctContainerBox = {
+  width: '100%',
+  height: '30px',
+  marginTop: '3px',
+  display: 'flex',
+  borderTop: '1px solid #d8d9db',
+  borderBottom: '1px solid #d8d9db',
+};
+
+export const div_time_list_container = {
+  width: '406px',
+  overflow: 'hidden',
+};
+
+export const hctListTimes = {
+  height: '30px',
+  display: 'flex',
+  flexDirection: 'row',
+  margin: 0,
+  padding: 0,
+};
+
+export const hctTimeListButton = {
+  minWidth: '40px',
+  height: '30px',
+  padding: 0,
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  '&:hover': {
+    background: 'none',
+  },
+  '&.Mui-selected': {
+    color: '#ffffff',
+    background: '#555555',
+    '&:hover': {
+      background: '#555555',
+    },
+  },
+  fontFamily: 'NanumBarunGothic, sans-serif',
+  fontSize: '17px',
+};
+
+export const hctTimeListButtonImg = {
+  minWidth: '40px',
+  height: '30px',
+  color: '#898989',
+  '&:hover': {
+    background: 'none',
+  },
 };
 
 /******************************************/
