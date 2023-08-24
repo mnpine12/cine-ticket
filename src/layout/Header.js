@@ -88,7 +88,7 @@ const Header = (props) => {
               style={{ fontSize: '13px' }}
               variant='button'
               color='text.primary'
-              href='#'
+              href='/booking'
               sx={headerLinkType}
             >
               빠른예매
@@ -113,9 +113,9 @@ const Header = (props) => {
             </MenuItem>
             <MenuItem component={RouterLink} to='/' sx={headerMenuItem}>
               {type === 'none' ? (
-                <img src='/images/gigabox.png' alt='기가박스' />
+                <img src='/images/logo/gigabox.png' alt='기가박스' />
               ) : (
-                <img src='/images/gigabox_main.png' alt='기가박스' />
+                <img src='/images/logo/gigabox_main.png' alt='기가박스' />
               )}
             </MenuItem>
             <MenuItem sx={headerMenuItem}>

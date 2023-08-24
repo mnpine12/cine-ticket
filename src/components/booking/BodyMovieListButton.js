@@ -12,12 +12,12 @@ export const BodyMovieListButton = ({
   handleMovieClick,
   ageRating,
 }) => {
-  const [imgUrl, setImgUrl] = useState('/images/ALL_46x46.png');
+  const [imgUrl, setImgUrl] = useState('/images/icon/ALL_46x46.png');
   useEffect(() => {
     if (ageRating === 'ALL') {
-      setImgUrl('/images/ALL_46x46.png');
+      setImgUrl('/images/icon/ALL_46x46.png');
     } else {
-      setImgUrl(`/images/${ageRating.replace('세', '')}_46x46.png`);
+      setImgUrl(`/images/icon/${ageRating.replace('세', '')}_46x46.png`);
     }
   }, [ageRating]);
 

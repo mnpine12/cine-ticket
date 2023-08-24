@@ -61,7 +61,6 @@ export const hcTopCalendarButton = {
 };
 
 export const hcListDates = {
-  width: '100%',
   height: '100%',
   display: 'flex',
   flexDirection: 'row',
@@ -72,11 +71,10 @@ export const hcListDates = {
 };
 
 export const hcListDatesItemButton = {
-  fontFamily: 'NanumBarunGothic, sans-serif',
-  fontSize: '15px',
-  padding: '0', // List 안에 꽉차도록 조절
-  width: '100%',
+  // List 안에 꽉차도록 조절
+  minWidth: '70.45px',
   height: '100%',
+  padding: 0,
   boxSizing: 'border-box',
   display: 'flex', // 이 아래로 글자 가운데 정렬
   alignItems: 'center',
@@ -91,6 +89,13 @@ export const hcListDatesItemButton = {
       background: '#f5f5f5',
     },
   },
+  fontFamily: 'NanumBarunGothic, sans-serif',
+  fontSize: '15px',
+};
+
+export const div_date_list_container = {
+  width: '986.3px',
+  overflow: 'hidden',
 };
 
 /******************************************/

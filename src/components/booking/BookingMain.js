@@ -34,7 +34,7 @@ export const BookingMain = () => {
           <Link color='inherit' href='/' sx={bmLink}>
             <HomeIcon fontSize='inherit' />
           </Link>
-          <Link color='inherit' underline='none' href='/' sx={bmLink}>
+          <Link color='inherit' underline='none' href='/booking' sx={bmLink}>
             예매
           </Link>
           <Link color='inherit' underline='none' sx={bmLink}>

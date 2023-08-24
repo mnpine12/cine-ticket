@@ -137,14 +137,14 @@ export const BodyPlace = () => {
                       </Grid>
                       <Grid item xs={12} sm={4}>
                         <img
-                          src='/images/poster_none.png'
+                          src='/images/poster/poster_none.png'
                           alt='선택되지 않음'
                           style={bcpImage}
                         />
                       </Grid>
                       <Grid item xs={12} sm={4}>
                         <img
-                          src='/images/poster_none.png'
+                          src='/images/poster/poster_none.png'
                           alt='선택되지 않음'
                           style={bcpImage}
                         />

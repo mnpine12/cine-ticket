@@ -123,7 +123,7 @@ export const MovieComingSoon = () => {
               </Box>
               <Box sx={mcsGridItemInnerBox}>
                 <img
-                  src={`/images/${movie[index].ageRating.replace(
+                  src={`/images/icon/${movie[index].ageRating.replace(
                     '세',
                     '',
                   )}_46x46.png`}
