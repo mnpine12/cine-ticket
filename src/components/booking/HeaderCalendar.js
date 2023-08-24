@@ -15,6 +15,7 @@ import NavigateBeforeIcon from '@mui/icons-material/NavigateBefore';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 
 import {
+  div_date_list_container,
   hcListDates,
   hcListDatesItemButton,
   hcTopCalendarBox,
@@ -56,10 +57,10 @@ const ButtonDatePicker = (props) => {
   );
 };
 
-// 헤더 캘린더 2주치 날짜 가져와서 목록 보여주기
+// 헤더 캘린더 6주치 날짜 가져와서 목록 보여주기
 const getTwoWeeksFromToday = () => {
   const today = dayjs();
-  const twoWeeksLater = today.add(2, 'week');
+  const twoWeeksLater = today.add(6, 'week');
   const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
 
   const dates = [];
@@ -85,6 +86,9 @@ export const HeaderCalendar = () => {
   const [selectedCalendarDate, setSelectedCalendarDate] = useState(null);
   const [selectedDay, setSelectedDay] = useState(today);
   const [selectedDayIndex, setSelectedDayIndex] = useState(0);
+  const [headerScrollPosition, setHeaderScrollPosition] = useState(0);
+  const [isHeaderLeftDisabled, setIsHeaderLeftDisabled] = useState(true);
+  const [isHeaderRightDisabled, setIsHeaderRightDisabled] = useState(false);
 
   const { dates, datesText } = getTwoWeeksFromToday();
 
@@ -107,34 +111,69 @@ export const HeaderCalendar = () => {
     );
   };
 
+  const headerHandleScroll = (direction) => {
+    const scrollStep = 35.225;
+    const container = document.getElementById('date-list-container');
+
+    let newScrollPosition =
+      direction === 'prev'
+        ? headerScrollPosition - scrollStep
+        : headerScrollPosition + scrollStep;
+
+    if (newScrollPosition < 0) {
+      newScrollPosition = 0;
+    } else if (newScrollPosition > 986.3) {
+      newScrollPosition = 986.3;
+    }
+
+    setHeaderScrollPosition(newScrollPosition);
+
+    // 버튼 활성/비활성 상태 업데이트
+    setIsHeaderLeftDisabled(newScrollPosition === 0);
+    setIsHeaderRightDisabled(newScrollPosition === 986.3);
+    container.scrollLeft = newScrollPosition;
+  };
+
   return (
     <Box sx={hcTopCalendarBox}>
-      <Button disableRipple sx={hcTopCalendarButton}>
+      <Button
+        disableRipple
+        disabled={isHeaderLeftDisabled}
+        onClick={() => headerHandleScroll('prev')}
+        sx={hcTopCalendarButton}
+      >
         <NavigateBeforeIcon sx={{ padding: 0 }} />
       </Button>
-
-      <List sx={hcListDates}>
-        {dates.map((date, index) => (
-          <ListItemButton
-            key={index}
-            value={selectedDay}
-            selected={selectedDayIndex === index}
-            onClick={() => handleDayListClick(date, index)}
-            sx={{
-              ...hcListDatesItemButton,
-              color: datesText[index].includes('일')
-                ? 'red'
-                : datesText[index].includes('토')
-                ? 'blue'
-                : 'inherit',
-            }}
-            disableRipple
-          >
-            {datesText[index]}
-          </ListItemButton>
-        ))}
-      </List>
-      <Button disableRipple={true} sx={hcTopCalendarButton}>
+      <div id='date-list-container' style={div_date_list_container}>
+        <List sx={hcListDates}>
+          {dates.map((date, index) => (
+            <ListItemButton
+              key={index}
+              value={selectedDay}
+              selected={selectedDayIndex === index}
+              onClick={() => handleDayListClick(date, index)}
+              sx={{
+                ...hcListDatesItemButton,
+                color: datesText[index].includes('일')
+                  ? 'red'
+                  : datesText[index].includes('토')
+                  ? 'blue'
+                  : 'inherit',
+                transform: `translateX(-${headerScrollPosition}px)`,
+              }}
+              disableRipple
+            >
+              {datesText[index]}
+            </ListItemButton>
+          ))}
+        </List>
+      </div>
+      <Button
+        disableRipple={true}
+        disabled={isHeaderRightDisabled}
+        onClick={() => headerHandleScroll('next')}
+        sx={hcTopCalendarButton}
+      >
         <NavigateNextIcon sx={{ padding: 0 }} />
       </Button>
       <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale='ko'>

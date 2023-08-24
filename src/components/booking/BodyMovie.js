@@ -22,7 +22,7 @@ import {
 import { BodyMovieListButton } from './BodyMovieListButton';
 
 const movies = [
-  { title: '오펜하이머', ageRating: '15세', img: 'main_image_01.jpg' },
+  { title: '오펜하이머', ageRating: '15세' },
   { title: '메가로돈2', ageRating: '15세' },
   { title: '콘크리트 유토피아', ageRating: '15세' },
   { title: '밀수', ageRating: '15세' },
@@ -36,7 +36,7 @@ const movies = [
   { title: '고대 이집트 문명의 빛나는 유산', ageRating: 'ALL' },
   { title: '스파이더맨: 어크로스 더 유니버스', ageRating: 'ALL' },
   { title: '강변의 무코리타', ageRating: '12세' },
-  { title: '지옥만세', ageRating: '12세', img: 'poster_00.jpg' },
+  { title: '지옥만세', ageRating: '12세' },
 ];
 
 export const BodyMovie = () => {
@@ -113,21 +113,25 @@ export const BodyMovie = () => {
                     <>
                       <Grid item xs={12} sm={4}>
                         <img
-                          src={'/images/poster_0' + selectedMovies[0] + '.jpg'}
+                          src={
+                            '/images/poster/poster_' +
+                            selectedMovies[0] +
+                            '.jpg'
+                          }
                           alt={selectedMovies[0]}
                           style={bcmImage}
                         />
                       </Grid>
                       <Grid item xs={12} sm={4}>
                         <img
-                          src='/images/poster_none.png'
+                          src='/images/poster/poster_none.png'
                           alt='선택되지 않음'
                           style={bcmImage}
                         />
                       </Grid>
                       <Grid item xs={12} sm={4}>
                         <img
-                          src='/images/poster_none.png'
+                          src='/images/poster/poster_none.png'
                           alt='선택되지 않음'
                           style={bcmImage}
                         />
@@ -137,21 +141,29 @@ export const BodyMovie = () => {
                     <>
                       <Grid item xs={12} sm={4}>
                         <img
-                          src={'/images/poster_0' + selectedMovies[0] + '.jpg'}
+                          src={
+                            '/images/poster/poster_' +
+                            selectedMovies[0] +
+                            '.jpg'
+                          }
                           alt={selectedMovies[0]}
                           style={bcmImage}
                         />
                       </Grid>
                       <Grid item xs={12} sm={4}>
                         <img
-                          src={'/images/poster_0' + selectedMovies[1] + '.jpg'}
+                          src={
+                            '/images/poster/poster_' +
+                            selectedMovies[1] +
+                            '.jpg'
+                          }
                           alt={selectedMovies[1]}
                           style={bcmImage}
                         />
                       </Grid>
                       <Grid item xs={12} sm={4}>
                         <img
-                          src='/images/poster_none.png'
+                          src='/images/poster/poster_none.png'
                           alt='선택되지 않음'
                           style={bcmImage}
                         />
@@ -161,21 +173,33 @@ export const BodyMovie = () => {
                     <>
                       <Grid item xs={12} sm={4}>
                         <img
-                          src={'/images/poster_0' + selectedMovies[0] + '.jpg'}
+                          src={
+                            '/images/poster/poster_' +
+                            selectedMovies[0] +
+                            '.jpg'
+                          }
                           alt={selectedMovies[0]}
                           style={bcmImage}
                         />
                       </Grid>
                       <Grid item xs={12} sm={4}>
                         <img
-                          src={'/images/poster_0' + selectedMovies[1] + '.jpg'}
+                          src={
+                            '/images/poster/poster_' +
+                            selectedMovies[1] +
+                            '.jpg'
+                          }
                           alt={selectedMovies[1]}
                           style={bcmImage}
                         />
                       </Grid>
                       <Grid item xs={12} sm={4}>
                         <img
-                          src={'/images/poster_0' + selectedMovies[2] + '.jpg'}
+                          src={
+                            '/images/poster/poster_' +
+                            selectedMovies[2] +
+                            '.jpg'
+                          }
                           alt={selectedMovies[2]}
                           style={bcmImage}
                         />

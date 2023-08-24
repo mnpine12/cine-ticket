@@ -121,7 +121,7 @@ export const MovieChart = () => {
               </Box>
               <Box sx={mcGridItemInnerBox}>
                 <img
-                  src={`/images/${movie[index].ageRating.replace(
+                  src={`/images/icon/${movie[index].ageRating.replace(
                     '세',
                     '',
                   )}_46x46.png`}
