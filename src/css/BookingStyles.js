@@ -480,5 +480,38 @@ export const hctTimeListButtonImg = {
 };
 
 /******************************************/
-/* BodyTime CSS end */
+/* HeaderTime CSS end */
+/******************************************/
+/* BodyTimeList CSS start */
+/******************************************/
+
+export const bctGridItemTimeList = {};
+
+export const bctTimeListOuterList = {
+  padding: 0,
+};
+
+export const bctTimeListItemButton = {
+  minHeight: '70px',
+  padding: '8px',
+  borderBottom: '1px solid #d8d9db',
+};
+
+export const bctTimeListBoxTypo1 = {
+  fontSize: '18px',
+  fontWeight: 700,
+};
+
+export const bctTimeListBoxTypo2 = {
+  fontSize: '12px',
+  fontWeight: 300,
+};
+
+export const bctTimeListBoxTypo3 = {
+  fontSize: '15px',
+  fontWeight: 400,
+};
+
+/******************************************/
+/* BodyTimeList CSS end */
 /******************************************/

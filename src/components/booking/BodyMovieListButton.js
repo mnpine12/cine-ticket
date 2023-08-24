@@ -1,9 +1,9 @@
+import { useEffect, useState } from 'react';
 import ListItemButton from '@mui/material/ListItemButton';
 import {
   bcmMoviesListButton,
   bcmMovieListButtonImg,
 } from '../../css/BookingStyles';
-import { useEffect, useState } from 'react';
 
 export const BodyMovieListButton = ({
   movie,
