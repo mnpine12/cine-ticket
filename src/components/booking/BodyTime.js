@@ -5,10 +5,12 @@ import Grid from '@mui/material/Grid';
 
 import {
   bctContainerBox,
+  bctGridItemTimeList,
   bctGridItemTypo,
   bctInnerContainerBox,
 } from '../../css/BookingStyles';
 import { HeaderTime } from './HeaderTime';
+import { BodyTimeList } from './BodyTimeList';
 
 export const BodyTime = () => {
   return (
@@ -20,6 +22,9 @@ export const BodyTime = () => {
           </Grid>
           <Grid item xs={12} sm={12}>
             <HeaderTime />
+          </Grid>
+          <Grid item xs={12} sm={12} sx={bctGridItemTimeList}>
+            <BodyTimeList />
           </Grid>
         </Grid>
       </Box>
