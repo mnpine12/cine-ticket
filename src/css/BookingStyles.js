@@ -216,6 +216,19 @@ export const bcmGridItemImage = {
   margin: 'auto',
 };
 
+export const bcmGridItemImageDelBtn = {
+  position: 'relative',
+};
+
+export const bcmImageDelBtn = {
+  width: '10px',
+  minHeight: '10px',
+  padding: 0,
+  position: 'absolute',
+  top: 0,
+  right: 15,
+};
+
 export const bcmImage = {
   width: '63px',
   height: '90px',

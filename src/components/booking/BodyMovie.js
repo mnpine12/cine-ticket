@@ -1,22 +1,22 @@
 import React, { useState } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
+import Grid from '@mui/material/Grid';
+import List from '@mui/material/List';
+import ListItemButton from '@mui/material/ListItemButton';
 
 import {
   bcmContainerBox,
   bcmGridItem,
-  bcmGridItemImage,
-  bcmGridItemImageBox_none,
-  bcmGridItemImgTypo,
   bcmGridItemList,
   bcmGridItemTypo,
   bcmGridListItemImage,
-  bcmImage,
   bcmInnerContainerBox,
   bcmListItemButton,
 } from '../../css/BookingStyles';
-import { Grid, List, ListItemButton } from '@mui/material';
+
 import { BodyMovieListButton } from './BodyMovieListButton';
+import { FooterMovieImage } from './FooterMovieImage';
 
 const movies = [
   { title: '오펜하이머', ageRating: '15세' },
@@ -41,7 +41,7 @@ export const BodyMovie = () => {
   const [selectedMovies, setSelectedMovies] = useState([]);
   const [imgUrl, setImgUrl] = useState([]);
 
-  //영화 선택
+  // 영화 선택 및 삭제
   const handleMovieClick = (index) => {
     const imgSrc = '/images/poster/poster_' + index + '.jpg';
 
@@ -52,6 +52,14 @@ export const BodyMovie = () => {
       setSelectedMovies(selectedMovies.filter((item) => item !== index));
       setImgUrl(imgUrl.filter((item) => item !== imgSrc));
     }
+  };
+
+  // 이미지 삭제 버튼으로 영화 삭제
+  const handelMovieDelBtnClick = (index) => {
+    const imgSrc = '/images/poster/poster_' + index + '.jpg';
+
+    setSelectedMovies(selectedMovies.filter((item) => item !== index));
+    setImgUrl(imgUrl.filter((item) => item !== imgSrc));
   };
 
   return (
@@ -97,96 +105,11 @@ export const BodyMovie = () => {
             </List>
           </Grid>
           <Grid item xs={12} sm={12} sx={bcmGridItem}>
-            <Box
-              sx={{
-                ...bcmGridItemImageBox_none,
-                border:
-                  selectedMovies.length !== 0 ? 'none' : '1px solid #d8d9db',
-              }}
-            >
-              {selectedMovies.length === 0 ? (
-                <Typography sx={bcmGridItemImgTypo}>
-                  모든영화
-                  <br /> 목록에서 영화를 선택하세요.
-                </Typography>
-              ) : (
-                <Grid container sx={bcmGridItemImage}>
-                  {selectedMovies.length === 1 ? (
-                    <>
-                      <Grid item xs={12} sm={4}>
-                        <img
-                          src={imgUrl[0]}
-                          alt={selectedMovies[0]}
-                          style={bcmImage}
-                        />
-                      </Grid>
-                      <Grid item xs={12} sm={4}>
-                        <img
-                          src='/images/poster/poster_none.png'
-                          alt='선택되지 않음'
-                          style={bcmImage}
-                        />
-                      </Grid>
-                      <Grid item xs={12} sm={4}>
-                        <img
-                          src='/images/poster/poster_none.png'
-                          alt='선택되지 않음'
-                          style={bcmImage}
-                        />
-                      </Grid>
-                    </>
-                  ) : selectedMovies.length === 2 ? (
-                    <>
-                      <Grid item xs={12} sm={4}>
-                        <img
-                          src={imgUrl[0]}
-                          alt={selectedMovies[0]}
-                          style={bcmImage}
-                        />
-                      </Grid>
-                      <Grid item xs={12} sm={4}>
-                        <img
-                          src={imgUrl[1]}
-                          alt={selectedMovies[1]}
-                          style={bcmImage}
-                        />
-                      </Grid>
-                      <Grid item xs={12} sm={4}>
-                        <img
-                          src='/images/poster/poster_none.png'
-                          alt='선택되지 않음'
-                          style={bcmImage}
-                        />
-                      </Grid>
-                    </>
-                  ) : (
-                    <>
-                      <Grid item xs={12} sm={4}>
-                        <img
-                          src={imgUrl[0]}
-                          alt={selectedMovies[0]}
-                          style={bcmImage}
-                        />
-                      </Grid>
-                      <Grid item xs={12} sm={4}>
-                        <img
-                          src={imgUrl[1]}
-                          alt={selectedMovies[1]}
-                          style={bcmImage}
-                        />
-                      </Grid>
-                      <Grid item xs={12} sm={4}>
-                        <img
-                          src={imgUrl[2]}
-                          alt={selectedMovies[2]}
-                          style={bcmImage}
-                        />
-                      </Grid>
-                    </>
-                  )}
-                </Grid>
-              )}
-            </Box>
+            <FooterMovieImage
+              selectedMovies={selectedMovies}
+              imgUrl={imgUrl}
+              handelMovieDelBtnClick={handelMovieDelBtnClick}
+            />
           </Grid>
         </Grid>
       </Box>
