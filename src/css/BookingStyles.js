@@ -394,16 +394,22 @@ export const bcpGridItemImageBox_none = {
   justifyContent: 'center',
 };
 
+export const bcpGridItemImage = {
+  width: '100%',
+  height: '90px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+};
+
 export const bcpGridItemImgTypo = {
   fontSize: '14px',
   fontFamily: 'NanumBarunGothic, sans-serif',
   textAlign: 'center',
 };
 
-export const bcpGridItemImage = {
-  width: '100%',
-  height: '90px',
-  margin: 'auto',
+export const bcpGridItemCinemaDelBtn = {
+  position: 'relative',
 };
 
 export const bcpImage = {
@@ -416,6 +422,15 @@ export const bcpImage = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+};
+
+export const bcpCinemaDelBtn = {
+  width: '10px',
+  minHeight: '10px',
+  padding: 0,
+  position: 'absolute',
+  top: 0,
+  right: 15,
 };
 
 /******************************************/

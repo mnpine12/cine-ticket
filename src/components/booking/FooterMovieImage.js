@@ -19,7 +19,7 @@ export const FooterMovieImage = ({
 }) => {
   const delButton = '/images/icon/btn-choice-dell.png';
 
-  const handleDelOnClick = (index) => {
+  const handleOnClickDelBtn = (index) => {
     handelMovieDelBtnClick(index);
   };
 
@@ -47,7 +47,7 @@ export const FooterMovieImage = ({
                     style={bcmImage}
                   />
                   <IconButton
-                    onClick={() => handleDelOnClick(selectedMovies[0])}
+                    onClick={() => handleOnClickDelBtn(selectedMovies[0])}
                     sx={bcmImageDelBtn}
                   >
                     <img src={delButton} alt='del-button' />
@@ -79,7 +79,7 @@ export const FooterMovieImage = ({
                     style={bcmImage}
                   />
                   <IconButton
-                    onClick={() => handleDelOnClick(selectedMovies[0])}
+                    onClick={() => handleOnClickDelBtn(selectedMovies[0])}
                     sx={bcmImageDelBtn}
                   >
                     <img src={delButton} alt='del-button' />
@@ -94,7 +94,7 @@ export const FooterMovieImage = ({
                     style={bcmImage}
                   />
                   <IconButton
-                    onClick={() => handleDelOnClick(selectedMovies[1])}
+                    onClick={() => handleOnClickDelBtn(selectedMovies[1])}
                     sx={bcmImageDelBtn}
                   >
                     <img src={delButton} alt='del-button' />
@@ -119,7 +119,7 @@ export const FooterMovieImage = ({
                     style={bcmImage}
                   />
                   <IconButton
-                    onClick={() => handleDelOnClick(selectedMovies[0])}
+                    onClick={() => handleOnClickDelBtn(selectedMovies[0])}
                     sx={bcmImageDelBtn}
                   >
                     <img src={delButton} alt='del-button' />
@@ -134,7 +134,7 @@ export const FooterMovieImage = ({
                     style={bcmImage}
                   />
                   <IconButton
-                    onClick={() => handleDelOnClick(selectedMovies[1])}
+                    onClick={() => handleOnClickDelBtn(selectedMovies[1])}
                     sx={bcmImageDelBtn}
                   >
                     <img src={delButton} alt='del-button' />
@@ -149,7 +149,7 @@ export const FooterMovieImage = ({
                     style={bcmImage}
                   />
                   <IconButton
-                    onClick={() => handleDelOnClick(selectedMovies[2])}
+                    onClick={() => handleOnClickDelBtn(selectedMovies[2])}
                     sx={bcmImageDelBtn}
                   >
                     <img src={delButton} alt='del-button' />
