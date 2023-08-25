@@ -52,7 +52,17 @@ export const hcTopCalendarBox = {
 };
 
 export const hcTopCalendarButton = {
-  minWidth: '10px',
+  minWidth: '40px',
+  height: '39px',
+  padding: 0,
+  color: '#898989',
+  '&:hover': {
+    background: 'none',
+  },
+};
+
+export const hcTopCalendarDatePickerButton = {
+  minWidth: '50px',
   height: '39px',
   color: '#898989',
   '&:hover': {
@@ -60,20 +70,26 @@ export const hcTopCalendarButton = {
   },
 };
 
+export const div_date_list_container = {
+  width: '966px',
+  overflow: 'hidden',
+};
+
 export const hcListDates = {
   height: '100%',
+  margin: 0,
+  padding: 0,
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-between',
-  margin: 0,
-  padding: 0,
+  transition: 'transform 0.2s ease-in-out',
 };
 
 export const hcListDatesItemButton = {
   // List 안에 꽉차도록 조절
-  minWidth: '70.45px',
-  height: '100%',
+  minWidth: '69px',
+  height: '39px',
   padding: 0,
   boxSizing: 'border-box',
   display: 'flex', // 이 아래로 글자 가운데 정렬
@@ -91,11 +107,6 @@ export const hcListDatesItemButton = {
   },
   fontFamily: 'NanumBarunGothic, sans-serif',
   fontSize: '15px',
-};
-
-export const div_date_list_container = {
-  width: '986.3px',
-  overflow: 'hidden',
 };
 
 /******************************************/
@@ -447,6 +458,7 @@ export const hctListTimes = {
   flexDirection: 'row',
   margin: 0,
   padding: 0,
+  transition: 'transform 0.2s ease-in-out',
 };
 
 export const hctTimeListButton = {
