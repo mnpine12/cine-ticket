@@ -20,6 +20,7 @@ import {
   hcListDatesItemButton,
   hcTopCalendarBox,
   hcTopCalendarButton,
+  hcTopCalendarDatePickerButton,
 } from '../../css/BookingStyles';
 
 // MUI datepicker 커스터마이징
@@ -31,7 +32,7 @@ const ButtonField = (props) => {
       id={id}
       disabled={disabled}
       ref={ref}
-      sx={hcTopCalendarButton}
+      sx={hcTopCalendarDatePickerButton}
       onClick={() => setOpen?.((prev) => !prev)}
     >
       <CalendarMonthIcon sx={{ padding: 0 }} />
@@ -57,10 +58,10 @@ const ButtonDatePicker = (props) => {
   );
 };
 
-// 헤더 캘린더 6주치 날짜 가져와서 목록 보여주기
+// 헤더 캘린더 7주치 날짜 가져와서 목록 보여주기
 const getTwoWeeksFromToday = () => {
   const today = dayjs();
-  const twoWeeksLater = today.add(6, 'week');
+  const twoWeeksLater = today.add(7, 'week');
   const daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
 
   const dates = [];
@@ -92,7 +93,7 @@ export const HeaderCalendar = () => {
 
   const { dates, datesText } = getTwoWeeksFromToday();
 
-  // 데이트피커 지난 날짜 선택 불가
+  // 데이트피커 오늘 이전 날짜 및 7주 이후 선택 불가
   const isYesterday = (date) => {
     return dayjs(dayjs(date).format('YYYY-MM-DD')).isBefore(today);
   };
@@ -112,7 +113,7 @@ export const HeaderCalendar = () => {
   };
 
   const headerHandleScroll = (direction) => {
-    const scrollStep = 35.225;
+    const scrollStep = 23;
     const container = document.getElementById('date-list-container');
 
     let newScrollPosition =
@@ -122,15 +123,15 @@ export const HeaderCalendar = () => {
 
     if (newScrollPosition < 0) {
       newScrollPosition = 0;
-    } else if (newScrollPosition > 986.3) {
-      newScrollPosition = 986.3;
+    } else if (newScrollPosition > 805) {
+      newScrollPosition = 805;
     }
 
     setHeaderScrollPosition(newScrollPosition);
 
     // 버튼 활성/비활성 상태 업데이트
     setIsHeaderLeftDisabled(newScrollPosition === 0);
-    setIsHeaderRightDisabled(newScrollPosition === 986.3);
+    setIsHeaderRightDisabled(newScrollPosition === 805);
     container.scrollLeft = newScrollPosition;
   };
 
@@ -145,10 +146,16 @@ export const HeaderCalendar = () => {
         <NavigateBeforeIcon sx={{ padding: 0 }} />
       </Button>
       <div id='date-list-container' style={div_date_list_container}>
-        <List sx={hcListDates}>
+        <List
+          sx={{
+            ...hcListDates,
+            transform: `translateX(-${headerScrollPosition}px)`,
+          }}
+        >
           {dates.map((date, index) => (
             <ListItemButton
               key={index}
+              disableRipple
               value={selectedDay}
               selected={selectedDayIndex === index}
               onClick={() => handleDayListClick(date, index)}
@@ -161,7 +168,6 @@ export const HeaderCalendar = () => {
                   : 'inherit',
                 transform: `translateX(-${headerScrollPosition}px)`,
               }}
-              disableRipple
             >
               {datesText[index]}
             </ListItemButton>

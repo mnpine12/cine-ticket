@@ -52,7 +52,17 @@ export const hcTopCalendarBox = {
 };
 
 export const hcTopCalendarButton = {
-  minWidth: '10px',
+  minWidth: '40px',
+  height: '39px',
+  padding: 0,
+  color: '#898989',
+  '&:hover': {
+    background: 'none',
+  },
+};
+
+export const hcTopCalendarDatePickerButton = {
+  minWidth: '50px',
   height: '39px',
   color: '#898989',
   '&:hover': {
@@ -60,20 +70,26 @@ export const hcTopCalendarButton = {
   },
 };
 
+export const div_date_list_container = {
+  width: '966px',
+  overflow: 'hidden',
+};
+
 export const hcListDates = {
   height: '100%',
+  margin: 0,
+  padding: 0,
   display: 'flex',
   flexDirection: 'row',
   alignItems: 'center',
   justifyContent: 'space-between',
-  margin: 0,
-  padding: 0,
+  transition: 'transform 0.2s ease-in-out',
 };
 
 export const hcListDatesItemButton = {
   // List 안에 꽉차도록 조절
-  minWidth: '70.45px',
-  height: '100%',
+  minWidth: '69px',
+  height: '39px',
   padding: 0,
   boxSizing: 'border-box',
   display: 'flex', // 이 아래로 글자 가운데 정렬
@@ -91,11 +107,6 @@ export const hcListDatesItemButton = {
   },
   fontFamily: 'NanumBarunGothic, sans-serif',
   fontSize: '15px',
-};
-
-export const div_date_list_container = {
-  width: '986.3px',
-  overflow: 'hidden',
 };
 
 /******************************************/
@@ -203,6 +214,19 @@ export const bcmGridItemImage = {
   width: '100%',
   height: '90px',
   margin: 'auto',
+};
+
+export const bcmGridItemImageDelBtn = {
+  position: 'relative',
+};
+
+export const bcmImageDelBtn = {
+  width: '10px',
+  minHeight: '10px',
+  padding: 0,
+  position: 'absolute',
+  top: 0,
+  right: 15,
 };
 
 export const bcmImage = {
@@ -370,16 +394,22 @@ export const bcpGridItemImageBox_none = {
   justifyContent: 'center',
 };
 
+export const bcpGridItemImage = {
+  width: '100%',
+  height: '90px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+};
+
 export const bcpGridItemImgTypo = {
   fontSize: '14px',
   fontFamily: 'NanumBarunGothic, sans-serif',
   textAlign: 'center',
 };
 
-export const bcpGridItemImage = {
-  width: '100%',
-  height: '90px',
-  margin: 'auto',
+export const bcpGridItemCinemaDelBtn = {
+  position: 'relative',
 };
 
 export const bcpImage = {
@@ -392,6 +422,15 @@ export const bcpImage = {
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'center',
+};
+
+export const bcpCinemaDelBtn = {
+  width: '10px',
+  minHeight: '10px',
+  padding: 0,
+  position: 'absolute',
+  top: 0,
+  right: 15,
 };
 
 /******************************************/
@@ -447,6 +486,7 @@ export const hctListTimes = {
   flexDirection: 'row',
   margin: 0,
   padding: 0,
+  transition: 'transform 0.2s ease-in-out',
 };
 
 export const hctTimeListButton = {
