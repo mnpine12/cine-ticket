@@ -84,13 +84,12 @@ const getTwoWeeksFromToday = () => {
 // HeaderCalendar
 export const HeaderCalendar = () => {
   const today = dayjs().format('YYYY-MM-DD');
-  const [selectedCalendarDate, setSelectedCalendarDate] = useState(null);
-  const [selectedDay, setSelectedDay] = useState(today);
+
+  const [selectedDay, setSelectedDay] = useState(null);
   const [selectedDayIndex, setSelectedDayIndex] = useState(0);
   const [headerScrollPosition, setHeaderScrollPosition] = useState(0);
   const [isHeaderLeftDisabled, setIsHeaderLeftDisabled] = useState(true);
   const [isHeaderRightDisabled, setIsHeaderRightDisabled] = useState(false);
-
   const { dates, datesText } = getTwoWeeksFromToday();
 
   // 데이트피커 오늘 이전 날짜 및 7주 이후 선택 불가
@@ -101,20 +100,43 @@ export const HeaderCalendar = () => {
   // 날짜 목록에서 날짜 선택시
   const handleDayListClick = (date, index) => {
     setSelectedDayIndex(index);
-    setSelectedDay(date);
+    setSelectedDay(dayjs(date));
+  };
+  const calculateScrollPosition = (selectedIndex) => {
+    const scrollStep = 23;
+    let centerScroll = 0;
+
+    if (selectedIndex < 8 && selectedIndex > 0) {
+      return centerScroll;
+    } else if (selectedIndex > 42) {
+      return (centerScroll = 805);
+    } else {
+      centerScroll = scrollStep * (selectedIndex - 7);
+      return centerScroll;
+    }
   };
 
   // 데이트피커 클릭시 해당 날짜로 이동
   const handleCalendarDateClick = (newDate) => {
-    setSelectedCalendarDate(newDate.format('YYYY-MM-DD'));
-    setSelectedDayIndex(
-      dates.findIndex((date) => date === newDate.format('YYYY-MM-DD')),
-    );
+    const newSelectedDate = newDate.format('YYYY-MM-DD');
+    setSelectedDay(newSelectedDate);
+
+    // 날짜 배열에서 선택한 날짜의 인덱스 찾기
+    const selectedIndex = dates.findIndex((date) => date === newSelectedDate);
+    setSelectedDayIndex(selectedIndex);
+
+    // 스크롤 위치 계산
+    const newScrollPosition = calculateScrollPosition(selectedIndex);
+    setHeaderScrollPosition(newScrollPosition);
+    setIsHeaderLeftDisabled(newScrollPosition === 0);
+    setIsHeaderRightDisabled(newScrollPosition === 805);
+    const container = document.getElementById('date-list-container');
+    container.scrollLeft = newScrollPosition;
+    console.log(typeof selectedCalendarDate);
   };
 
   const headerHandleScroll = (direction) => {
     const scrollStep = 23;
-    const container = document.getElementById('date-list-container');
 
     let newScrollPosition =
       direction === 'prev'
@@ -132,6 +154,7 @@ export const HeaderCalendar = () => {
     // 버튼 활성/비활성 상태 업데이트
     setIsHeaderLeftDisabled(newScrollPosition === 0);
     setIsHeaderRightDisabled(newScrollPosition === 805);
+    const container = document.getElementById('date-list-container');
     container.scrollLeft = newScrollPosition;
   };
 
@@ -184,7 +207,7 @@ export const HeaderCalendar = () => {
       </Button>
       <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale='ko'>
         <ButtonDatePicker
-          value={selectedCalendarDate}
+          value={selectedDay}
           onChange={(newDate) => handleCalendarDateClick(newDate)}
           isYesterday={isYesterday}
         />

@@ -72,6 +72,7 @@ export const BodyMovie = () => {
           <Grid item xs={12} sm={12}>
             <List sx={bcmGridItemList}>
               <ListItemButton
+                key={0}
                 selected={selectedMenu === 0}
                 value={selectedMenu}
                 onClick={() => setSelectedMenu(0)}
@@ -81,6 +82,7 @@ export const BodyMovie = () => {
                 전체
               </ListItemButton>
               <ListItemButton
+                key={1}
                 selected={selectedMenu === 1}
                 value={selectedMenu}
                 onClick={() => setSelectedMenu(1)}
@@ -95,6 +97,7 @@ export const BodyMovie = () => {
             <List sx={bcmGridListItemImage}>
               {movies.map((movie, index) => (
                 <BodyMovieListButton
+                  key={index}
                   movie={movie.title}
                   index={index}
                   selectedMovies={selectedMovies}
