@@ -76,6 +76,7 @@ export const div_date_list_container = {
 };
 
 export const hcListDates = {
+  width: '970px',
   height: '100%',
   margin: 0,
   padding: 0,

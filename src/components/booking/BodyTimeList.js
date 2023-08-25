@@ -87,7 +87,7 @@ export const BodyTimeList = () => {
   return (
     <List sx={bctTimeListOuterList}>
       {filteredMovieTimes.map((item, index) => (
-        <ListItemButton disableRipple sx={bctTimeListItemButton}>
+        <ListItemButton key={index} disableRipple sx={bctTimeListItemButton}>
           <Box sx={{ width: '5%', paddingLeft: '0.5rem' }}>
             {item.timeSlotPrice === '조조' && (
               <img

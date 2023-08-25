@@ -5,23 +5,20 @@ import Grid from '@mui/material/Grid';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
 
+import { FooterPlaceImage } from './FooterPlaceImage';
+
 import {
   bcpCinemaList,
   bcpCinemaListButton,
   bcpContainerBox,
-  bcpGridItemImage,
-  bcpGridItemImageBox_none,
-  bcpGridItemImgTypo,
   bcpGridItemList,
   bcpGridItemTypo,
-  bcpImage,
   bcpInnerContainerBox,
   bcpListItemButton,
   bcpPlacesList,
   bcpPlacesListBox,
   bcpPlacesListButton,
 } from '../../css/BookingStyles';
-import { FooterPlaceImage } from './FooterPlaceImage';
 
 const place = [
   {
@@ -36,11 +33,11 @@ const place = [
 
 export const BodyPlace = () => {
   const [selectedMenu, setSelectedMenu] = useState(0);
-  const [selectedPlace, setSelectedPlace] = useState(null);
+  const [selectedArea, setSelectedArea] = useState(null);
   const [selectedCinema, setSelectedCinema] = useState([]);
 
   const handleOnClickPlace = (value) => {
-    setSelectedPlace(value);
+    setSelectedArea(value);
   };
 
   const handleOnClickCinema = (value) => {
@@ -91,7 +88,7 @@ export const BodyPlace = () => {
                   <ListItemButton
                     key={index}
                     disableRipple
-                    selected={selectedCinema === index}
+                    selected={selectedArea === index}
                     value={index}
                     onClick={() => handleOnClickPlace(index)}
                     sx={bcpPlacesListButton}
@@ -100,35 +97,21 @@ export const BodyPlace = () => {
                   </ListItemButton>
                 ))}
               </List>
-              {selectedPlace === null ? null : selectedPlace === 0 ? (
+              {selectedArea !== null ? (
                 <List sx={bcpCinemaList}>
-                  {place[selectedPlace].cinema.map((cinema, index) => (
+                  {place[selectedArea].cinema.map((cinema, index) => (
                     <ListItemButton
                       key={index}
                       disableRipple
                       selected={selectedCinema.includes(cinema)}
                       onClick={() => handleOnClickCinema(cinema)}
-                      sx={bcpPlacesListButton}
+                      sx={bcpCinemaListButton}
                     >
                       {cinema}
                     </ListItemButton>
                   ))}
                 </List>
-              ) : (
-                <List sx={bcpCinemaList}>
-                  {place[selectedPlace].cinema.map((cinema, index) => (
-                    <ListItemButton
-                      key={index}
-                      disableRipple
-                      selected={selectedCinema.includes(cinema)}
-                      onClick={() => handleOnClickCinema(cinema)}
-                      sx={bcpPlacesListButton}
-                    >
-                      {cinema}
-                    </ListItemButton>
-                  ))}
-                </List>
-              )}
+              ) : null}
             </Box>
           </Grid>
           <Grid item xs={12} sm={12}>
