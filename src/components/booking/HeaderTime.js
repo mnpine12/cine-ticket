@@ -20,10 +20,14 @@ export const HeaderTime = () => {
   const [isLeftDisabled, setIsLeftDisabled] = useState(true);
   const [isRightDisabled, setIsRightDisabled] = useState(false);
 
+  const playStartTime = '9:50';
+  const startTime = parseInt(playStartTime.slice(0, 1));
+
   const handleOnClickStartTime = (index) => {
     setSelectedTimeIndex(index);
   };
 
+  // 시간 버튼으로 스크롤 넘기기
   const handleScroll = (direction) => {
     const scrollStep = 20;
     const container = document.getElementById('time-list-container');
@@ -68,6 +72,7 @@ export const HeaderTime = () => {
             <ListItemButton
               key={index}
               disableRipple
+              disabled={startTime > index ? true : false}
               selected={selectedTimeIndex === index}
               onClick={() => handleOnClickStartTime(index)}
               sx={hctTimeListButton}

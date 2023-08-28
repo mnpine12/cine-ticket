@@ -11,22 +11,24 @@ import { MovieChart } from './components/movie/MovieChart';
 import { MovieComingSoon } from './components/movie/MovieComingSoon';
 import { MovieList } from './components/movie/MovieList';
 import { BookingMain } from './components/booking/BookingMain';
+import { SeatBooking } from './components/seatBooking/SeatBooking';
 
 ///movies/:id/detail 추후에 경로 수정
 function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path='/' element={<Main />}></Route>
-        <Route path='/login' element={<Login />}></Route>
-        <Route path='/signup' element={<Signup />}></Route>
-        <Route path='/forgotPassword' element={<ForgotPassword />}></Route>
+        <Route path='/' element={<Main />} />
+        <Route path='/login' element={<Login />} />
+        <Route path='/signup' element={<Signup />} />
+        <Route path='/forgotPassword' element={<ForgotPassword />} />
         <Route path='/movie' element={<MovieList />}>
           <Route path='boxOffice' element={<MovieChart />} />
           <Route path='comingSoon' element={<MovieComingSoon />} />
         </Route>
-        <Route path='/booking' element={<BookingMain />}></Route>
-        <Route path='/detail' element={<MovieDetail />}></Route>
+        <Route path='/booking' element={<BookingMain />} />
+        <Route path='/seatBooking' element={<SeatBooking />} />
+        <Route path='/detail' element={<MovieDetail />} />
       </Routes>
     </BrowserRouter>
   );
