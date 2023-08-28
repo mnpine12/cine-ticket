@@ -9,6 +9,7 @@ import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 
 import Header from '../../layout/Header';
 import { HeaderCalendar } from './HeaderCalendar';
+import { BodyContents } from './BodyContents';
 
 import {
   bmBreadcrumbs,
@@ -18,7 +19,6 @@ import {
   bmTitleTypo,
   bmTitleTypoBox,
 } from '../../css/BookingStyles';
-import { BodyContents } from './BodyContents';
 
 export const BookingMain = () => {
   const cachedHeader = useMemo(() => <Header type={'none'} />, []);

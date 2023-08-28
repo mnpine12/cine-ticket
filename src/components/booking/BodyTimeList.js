@@ -1,4 +1,6 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -79,15 +81,26 @@ const selected = {
 };
 
 export const BodyTimeList = () => {
+  const navigate = useNavigate();
+
   const filteredMovieTimes = movieTimes.filter(
     (item, index) =>
       item.area === selected.area1 && item.cinema === selected.cinema1,
   );
 
+  const handleOnClick = () => {
+    navigate('/seatBooking');
+  };
+
   return (
     <List sx={bctTimeListOuterList}>
       {filteredMovieTimes.map((item, index) => (
-        <ListItemButton key={index} disableRipple sx={bctTimeListItemButton}>
+        <ListItemButton
+          key={index}
+          disableRipple
+          onClick={handleOnClick}
+          sx={bctTimeListItemButton}
+        >
           <Box sx={{ width: '5%', paddingLeft: '0.5rem' }}>
             {item.timeSlotPrice === '조조' && (
               <img
