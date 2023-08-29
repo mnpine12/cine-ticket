@@ -2,7 +2,10 @@
 /* SeatBooking CSS start */
 /******************************************/
 
-export const sbOuterBox = {};
+export const sbOuterBox = {
+  width: '100%',
+  margin: 'auto',
+};
 
 export const sbBreadcrumbsBox = {
   width: '100%',
@@ -22,6 +25,11 @@ export const sbBreadcrumbsLink = {
   alignItems: 'center',
 };
 
+export const sbBodyBox = {
+  width: '100%',
+  height: '750px',
+};
+
 export const sbTitleTypoBox = {
   width: '1100px',
   height: '50px',
@@ -31,15 +39,18 @@ export const sbTitleTypoBox = {
 };
 
 export const sbTitleTypo = {
-  fontFamily: 'NanumBarunGothic, sans-serif',
   fontSize: '28px',
+  fontFamily: 'NanumBarunGothic, sans-serif',
+  marginLeft: '35px',
 };
 
 export const sbContentsBox = {
-  width: '1100px',
+  width: '100%',
   height: '560px',
   margin: 'auto',
   display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
 };
 
 /******************************************/
@@ -78,11 +89,21 @@ export const ssTopButton = {
   },
 };
 
+export const ssGridItemCount = {
+  height: '55px',
+  marginTop: '10px',
+  paddingTop: '10px',
+  paddingLeft: '20px',
+  paddingBottom: '10px',
+  display: 'flex',
+  alignItems: 'center',
+  background: '#f2f4f5',
+  border: '1px solid #d8d9db',
+};
+
 export const ssCountButton = {
-  width: '30px',
-  height: '30px',
-  fontSize: '14px',
-  fontWeight: '300',
+  width: '25px',
+  height: '25px',
   background: '#ffffff',
   color: '#666666',
   border: '1px solid #d8d9db',
@@ -91,8 +112,65 @@ export const ssCountButton = {
   },
 };
 
+export const ssCountTextField = {
+  width: '50px',
+  marginRight: '5px',
+  marginLeft: '5px',
+  textAlign: 'center',
+  background: '#ffffff',
+};
+
+export const ssGridItemCountBox = {
+  display: 'flex',
+  alignItems: 'center',
+};
+
 /******************************************/
 /* SeatSelector CSS end */
+/******************************************/
+/* SeatDisplay CSS start */
+/******************************************/
+
+export const sdOuterBox = {
+  width: '100%',
+  height: '450px',
+  textAlign: 'center',
+};
+
+export const sdToggleBtnGroupBox = {
+  textAlign: 'left',
+  display: 'flex',
+  justifyContent: 'center',
+};
+
+export const sdLetterToggleButton = {
+  width: '25px',
+  height: '25px',
+  marginRight: '2rem',
+  '&:hover': {
+    background: 'transparent',
+  },
+  borderRadius: '0px',
+};
+
+export const sdNumberToggleButton = {
+  width: '25px',
+  height: '25px',
+  borderRadius: '0px',
+};
+
+export const sdNumberToggleGroupLeft = {
+  marginLeft: '1rem',
+  marginRight: '1rem',
+};
+
+export const sdNumberToggleGroupRight = {
+  marginLeft: '1rem',
+  marginRight: '3rem',
+};
+
+/******************************************/
+/* SeatDisplay CSS end */
 /******************************************/
 /* SeatSelectorInfo CSS start */
 /******************************************/

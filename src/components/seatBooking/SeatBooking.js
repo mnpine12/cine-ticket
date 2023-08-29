@@ -12,6 +12,7 @@ import { SeatSelectorInfo } from './SeatSelectorInfo';
 
 import Header from '../../layout/Header';
 import {
+  sbBodyBox,
   sbBreadcrumbs,
   sbBreadcrumbsBox,
   sbBreadcrumbsLink,
@@ -49,12 +50,14 @@ export const SeatBooking = () => {
             </Link>
           </Breadcrumbs>
         </Box>
-        <Box sx={sbTitleTypoBox}>
-          <Typography sx={sbTitleTypo}>빠른예매</Typography>
-        </Box>
-        <Box sx={sbContentsBox}>
-          <SeatSelector />
-          <SeatSelectorInfo />
+        <Box sx={sbBodyBox}>
+          <Box sx={sbTitleTypoBox}>
+            <Typography sx={sbTitleTypo}>빠른예매</Typography>
+          </Box>
+          <Box sx={sbContentsBox}>
+            <SeatSelector />
+            <SeatSelectorInfo />
+          </Box>
         </Box>
       </Box>
     </>
