@@ -62,6 +62,7 @@ export const sbContentsBox = {
 export const ssOuterBox = {
   width: '700px',
   height: '100%',
+  marginBottom: 0,
   paddingTop: '5px',
   borderTop: '1px solid #151515',
 };
@@ -135,6 +136,7 @@ export const sdOuterBox = {
   width: '100%',
   height: '450px',
   textAlign: 'center',
+  border: '1px solid #151515',
 };
 
 export const sdToggleBtnGroupBox = {
@@ -156,7 +158,33 @@ export const sdLetterToggleButton = {
 export const sdNumberToggleButton = {
   width: '25px',
   height: '25px',
+  margin: '1px',
+  border: '1px solid #02bfd3',
   borderRadius: '0px',
+  background: '#747474',
+  color: '#ffffff',
+  '&:hover': {
+    background: '#503396',
+  },
+  '&.Mui-selected': {
+    background: '#503396',
+    color: '#ffffff',
+    '&:hover': {
+      background: '#503396',
+    },
+  },
+};
+
+export const sdNumberToggleButton_dis = {
+  width: '25px',
+  height: '25px',
+  margin: '1px',
+  border: '1px solid #02bfd3',
+  borderRadius: '0px',
+  color: '#ffffff',
+  opacity: 0.6,
+  backgroundImage: 'url("/images/icon/bg-seat-condition-impossible.png")',
+  backgroundSize: 'cover',
 };
 
 export const sdNumberToggleGroupLeft = {
@@ -180,5 +208,113 @@ export const ssiOuterBox = {
   height: '100%',
   marginLeft: '1rem',
   borderRadius: '10px',
-  background: 'gray',
+  background: '#333333',
+};
+
+export const ssiInnerBox = {
+  padding: '1rem',
+};
+
+export const ssiTopBox = {
+  height: '80px',
+};
+
+export const ssiTopBoxIcon = {
+  window: '20px',
+  height: '20px',
+};
+
+export const ssiImg = {
+  width: '70px',
+  height: '100px',
+};
+
+export const ssiFooterBtn_L = {
+  height: '40px',
+  borderRadius: '0px',
+  background: '#53565b',
+  color: '#ffffff',
+  '&:hover': {
+    background: '#53565b',
+  },
+  fontSize: '17px',
+};
+
+export const ssiFooterBtn_R = {
+  height: '40px',
+  borderRadius: '0px',
+  background: '#e0e0e0',
+  color: '#aaaaaa',
+  '&:hover': {
+    background: '#e0e0e0',
+  },
+  fontSize: '17px',
+};
+
+export const ssiBodyGridItem_image = {
+  border: '1px solid rgba(255, 255, 255, 0.1)',
+  padding: '2rem',
+};
+
+export const ssiBodyGridItemBox = {
+  display: 'flex',
+  justifyContent: 'left',
+  marginTop: '5px',
+};
+
+export const ssiBodyGridItem_seat = {
+  padding: '1rem',
+  border: '1px solid rgba(255, 255, 255, 0.1)',
+  textAlign: 'center',
+};
+
+export const ssiBodyGridItem_seatBox = {
+  width: '35px',
+  height: '35px',
+  marginBottom: '5px',
+  color: '#ffffff',
+  background: '#503396',
+  border: '1px solid rgba(255, 255, 255, 0.2)',
+  textAlign: 'center',
+};
+
+export const ssiBodyGridItem_seatBox_none = {
+  width: '35px',
+  height: '35px',
+  marginBottom: '5px',
+  color: 'rgba(255, 255, 255, 0.4)',
+  background: 'inherit',
+  border: '1px solid rgba(255, 255, 255, 0.4)',
+  textAlign: 'center',
+};
+
+export const ssiBodyGridItem_selected = {
+  marginTop: '5px',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+};
+
+export const ssiFooterGridItem = {
+  height: '90px',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'flex-start',
+  justifyContent: 'flex-end',
+};
+
+export const ssiFontStyle = {
+  color: '#ffffff',
+  opacity: 0.8,
+  fontSize: '13px',
+};
+
+export const ssiFontStyle2 = {
+  color: '#ffffff',
+  fontSize: '15px',
+};
+
+export const ssiFontStyle3 = {
+  color: '#ffffff',
+  fontSize: '24px',
 };

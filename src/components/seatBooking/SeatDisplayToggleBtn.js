@@ -10,6 +10,7 @@ import {
   sdNumberToggleGroupRight,
   sdToggleBtnGroupBox,
   sdNumberToggleButton,
+  sdNumberToggleButton_dis,
 } from '../../css/SeatBookingStyles';
 
 const letters = [
@@ -28,8 +29,7 @@ const letters = [
   'M',
 ];
 
-export const SeatDisplayToggleBtn = () => {
-  //const count = 1;
+export const SeatDisplayToggleBtn = ({ count }) => {
   const [selectedSeat, setSelectedSeat] = useState(null);
 
   const handleOnClickNumber = (value) => {
@@ -61,7 +61,7 @@ export const SeatDisplayToggleBtn = () => {
             {Array.from({ length: 5 }, (_, index) => {
               const leftIndex = index + 1;
               const value = letter + '' + leftIndex;
-              if (leftIndex % 3 === 0) {
+              if (leftIndex % 2 === 0 && count === 1) {
                 return (
                   <ToggleButton
                     key={value}
@@ -69,7 +69,7 @@ export const SeatDisplayToggleBtn = () => {
                     disableRipple
                     disabled
                     value={value}
-                    sx={sdNumberToggleButton}
+                    sx={sdNumberToggleButton_dis}
                     onClick={() => handleOnClickNumber(value)}
                   >
                     {leftIndex}
@@ -95,7 +95,7 @@ export const SeatDisplayToggleBtn = () => {
             {Array.from({ length: 9 }, (_, index) => {
               const centerIndex = index + 6;
               const value = letter + '' + centerIndex;
-              if (centerIndex % 3 === 0) {
+              if (centerIndex % 2 === 0 && count === 1) {
                 return (
                   <ToggleButton
                     key={value}
@@ -103,7 +103,7 @@ export const SeatDisplayToggleBtn = () => {
                     disableRipple
                     disabled
                     value={value}
-                    sx={sdNumberToggleButton}
+                    sx={sdNumberToggleButton_dis}
                     onClick={() => handleOnClickNumber(value)}
                   >
                     {centerIndex}
@@ -133,7 +133,7 @@ export const SeatDisplayToggleBtn = () => {
             {Array.from({ length: 5 }, (_, index) => {
               const rightIndex = index + 15;
               const value = letter + '' + rightIndex;
-              if (index + 15 === 17) {
+              if (rightIndex % 2 === 0 && count === 1) {
                 return (
                   <ToggleButton
                     key={value}
@@ -141,7 +141,7 @@ export const SeatDisplayToggleBtn = () => {
                     disableRipple
                     disabled
                     value={value}
-                    sx={sdNumberToggleButton}
+                    sx={sdNumberToggleButton_dis}
                     onClick={() => handleOnClickNumber(value)}
                   >
                     {rightIndex}
@@ -168,3 +168,130 @@ export const SeatDisplayToggleBtn = () => {
     </>
   );
 };
+
+// return (
+//   <>
+//     {letters.map((letter, idx) => (
+//       <Box sx={sdToggleBtnGroupBox}>
+//         <ToggleButton
+//           disableRipple
+//           key={idx}
+//           value={letter}
+//           sx={sdLetterToggleButton}
+//         >
+//           {letter}
+//         </ToggleButton>
+//         <ToggleButtonGroup
+//           exclusive
+//           value={selectedSeat}
+//           sx={sdNumberToggleGroupLeft}
+//         >
+//           {Array.from({ length: 5 }, (_, index) => {
+//             const leftIndex = index + 1;
+//             const value = letter + '' + leftIndex;
+//             if (leftIndex % 3 === 0) {
+//               return (
+//                 <ToggleButton
+//                   key={value}
+//                   size='small'
+//                   disableRipple
+//                   disabled
+//                   value={value}
+//                   sx={sdNumberToggleButton}
+//                   onClick={() => handleOnClickNumber(value)}
+//                 >
+//                   {leftIndex}
+//                 </ToggleButton>
+//               );
+//             } else {
+//               return (
+//                 <ToggleButton
+//                   key={value}
+//                   size='small'
+//                   disableRipple
+//                   value={value}
+//                   sx={sdNumberToggleButton}
+//                   onClick={() => handleOnClickNumber(value)}
+//                 >
+//                   {leftIndex}
+//                 </ToggleButton>
+//               );
+//             }
+//           })}
+//         </ToggleButtonGroup>
+//         <ToggleButtonGroup exclusive value={selectedSeat}>
+//           {Array.from({ length: 9 }, (_, index) => {
+//             const centerIndex = index + 6;
+//             const value = letter + '' + centerIndex;
+//             if (centerIndex % 3 === 0) {
+//               return (
+//                 <ToggleButton
+//                   key={value}
+//                   size='small'
+//                   disableRipple
+//                   disabled
+//                   value={value}
+//                   sx={sdNumberToggleButton}
+//                   onClick={() => handleOnClickNumber(value)}
+//                 >
+//                   {centerIndex}
+//                 </ToggleButton>
+//               );
+//             } else {
+//               return (
+//                 <ToggleButton
+//                   key={value}
+//                   size='small'
+//                   disableRipple
+//                   value={value}
+//                   sx={sdNumberToggleButton}
+//                   onClick={() => handleOnClickNumber(value)}
+//                 >
+//                   {centerIndex}
+//                 </ToggleButton>
+//               );
+//             }
+//           })}
+//         </ToggleButtonGroup>
+//         <ToggleButtonGroup
+//           exclusive
+//           value={selectedSeat}
+//           sx={sdNumberToggleGroupRight}
+//         >
+//           {Array.from({ length: 5 }, (_, index) => {
+//             const rightIndex = index + 15;
+//             const value = letter + '' + rightIndex;
+//             if (index + 15 === 17) {
+//               return (
+//                 <ToggleButton
+//                   key={value}
+//                   size='small'
+//                   disableRipple
+//                   disabled
+//                   value={value}
+//                   sx={sdNumberToggleButton}
+//                   onClick={() => handleOnClickNumber(value)}
+//                 >
+//                   {rightIndex}
+//                 </ToggleButton>
+//               );
+//             } else {
+//               return (
+//                 <ToggleButton
+//                   key={value}
+//                   size='small'
+//                   disableRipple
+//                   value={value}
+//                   sx={sdNumberToggleButton}
+//                   onClick={() => handleOnClickNumber(value)}
+//                 >
+//                   {rightIndex}
+//                 </ToggleButton>
+//               );
+//             }
+//           })}
+//         </ToggleButtonGroup>
+//       </Box>
+//     ))}
+//   </>
+// );

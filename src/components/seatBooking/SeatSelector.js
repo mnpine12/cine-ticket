@@ -6,10 +6,11 @@ import { SpectatorCounter } from './SpectatorCounter';
 import { SeatDisplay } from './SeatDisplay';
 
 export const SeatSelector = () => {
+  const count = 1;
   return (
     <Box sx={ssOuterBox}>
       <SpectatorCounter />
-      <SeatDisplay />
+      <SeatDisplay count={count} />
     </Box>
   );
 };
