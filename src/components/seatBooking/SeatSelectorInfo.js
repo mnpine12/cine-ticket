@@ -41,7 +41,7 @@ const movie = {
 export const SeatSelectorInfo = () => {
   const count = 1;
   const [selectedTime, setSelectedTime] = useState(0);
-  const selectedSeats = ['A1', 'G9', 'H11', 'H9', '', '', '', ''];
+  const selectedSeats = ['A1', '', '', '', '', '', '', ''];
   const imgIcon = `/images/icon/${movie.ageRating.replace('세', '')}_46x46.png`;
 
   return (
@@ -137,7 +137,6 @@ export const SeatSelectorInfo = () => {
           </Grid>
           <Grid item xs={12} sm={6} sx={ssiBodyGridItem_seat}>
             <InputLabel sx={ssiFontStyle}>선택좌석</InputLabel>
-
             <Grid container sx={ssiBodyGridItem_selected}>
               <Grid item xs={9}>
                 {Array.from(
@@ -182,8 +181,8 @@ export const SeatSelectorInfo = () => {
               alignItems={'center'}
               justifyContent={'flex-end'}
             >
-              <InputLabel sx={ssiFontStyle3}>112000</InputLabel>
-              <InputLabel sx={ssiFontStyle2}> 원</InputLabel>
+              <InputLabel sx={ssiFontStyle3}>8,000</InputLabel>
+              <InputLabel sx={ssiFontStyle2}>&nbsp;원</InputLabel>
             </Box>
           </Grid>
           <Grid item xs={12} sm={6} sx={{ marginTop: '10px' }}>

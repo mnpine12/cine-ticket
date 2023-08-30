@@ -315,6 +315,6 @@ export const ssiFontStyle2 = {
 };
 
 export const ssiFontStyle3 = {
-  color: '#ffffff',
+  color: '#02bfd3',
   fontSize: '24px',
 };
