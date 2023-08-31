@@ -40,6 +40,26 @@ export const SeatDisplay = ({ count }) => {
       console.log(value);
     }
   };
+
+  const renderToggleButton = (value, label, index, count) => {
+    const isEven = index % 2 === 0;
+    const isDisabled = isEven && count === 1;
+
+    return (
+      <ToggleButton
+        key={value}
+        size='small'
+        disableRipple
+        disabled={isDisabled}
+        value={value}
+        sx={isDisabled ? sdNumberToggleButton_dis : sdNumberToggleButton}
+        onClick={() => handleOnClickNumber(value)}
+      >
+        {label}
+      </ToggleButton>
+    );
+  };
+
   return (
     <Box sx={sdOuterBox}>
       <img
@@ -68,19 +88,7 @@ export const SeatDisplay = ({ count }) => {
                 const leftIndex = index + 1;
                 const value = letter + '' + leftIndex;
                 if (leftIndex % 2 === 0 && count === 1) {
-                  return (
-                    <ToggleButton
-                      key={value}
-                      size='small'
-                      disableRipple
-                      disabled
-                      value={value}
-                      sx={sdNumberToggleButton_dis}
-                      onClick={() => handleOnClickNumber(value)}
-                    >
-                      {leftIndex}
-                    </ToggleButton>
-                  );
+                  return renderToggleButton(value, leftIndex, index, count);
                 } else {
                   return (
                     <ToggleButton

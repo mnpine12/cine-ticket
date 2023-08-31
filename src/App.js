@@ -12,6 +12,7 @@ import { MovieComingSoon } from './components/movie/MovieComingSoon';
 import { MovieList } from './components/movie/MovieList';
 import { BookingMain } from './components/booking/BookingMain';
 import { SeatBooking } from './components/seatBooking/SeatBooking';
+import { UserInfo } from './components/user/UserInfo';
 
 ///movies/:id/detail 추후에 경로 수정
 function App() {
@@ -22,6 +23,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/signup' element={<Signup />} />
         <Route path='/forgotPassword' element={<ForgotPassword />} />
+        <Route path='/myPage' element={<UserInfo />} />
         <Route path='/movie' element={<MovieList />}>
           <Route path='boxOffice' element={<MovieChart />} />
           <Route path='comingSoon' element={<MovieComingSoon />} />

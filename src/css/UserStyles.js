@@ -64,3 +64,69 @@ export const fpInputTextField = { width: 250, ml: 2, mr: 2 };
 /******************************************/
 /* ForgotPassword CSS end */
 /******************************************/
+/******************************************/
+/* UserInfo CSS start */
+/************************s******************/
+
+export const uiOuterBox = {
+  width: '100%',
+  height: '100%',
+};
+
+export const uiBreadcrumbsBox = {
+  width: '100%',
+  height: '40px',
+  background: '#f8f8fa',
+  display: 'flex',
+  flexDirection: 'row',
+  alignItems: 'center',
+};
+
+export const uiBreadcrumbs = {
+  paddingLeft: '10rem',
+};
+
+export const uiBreadcrumbsLink = {
+  display: 'flex',
+  alignItems: 'center',
+};
+
+export const uiInnerBox = {
+  width: '1100px',
+  height: '750px',
+  margin: 'auto',
+};
+
+export const uiTitleBox = {
+  textAlign: 'center',
+  marginTop: '5rem',
+  marginBottom: '3rem',
+};
+
+export const uiGridContainer = {
+  border: '1px solid #d8d9db',
+  borderBottom: 'none',
+};
+
+export const uiGridItemContents1 = {
+  height: '70px',
+  margin: 0,
+  paddingLeft: '20px',
+  display: 'flex',
+  alignItems: 'center',
+  background: '#ebebeb',
+  borderBottom: '1px solid #d8d9db',
+};
+
+export const uiGridItemContents2 = {
+  height: '70px',
+  margin: 0,
+  paddingLeft: '20px',
+  display: 'flex',
+  alignItems: 'center',
+  borderBottom: '1px solid #d8d9db',
+};
+
+/******************************************/
+/* UserInfo CSS end */
+/******************************************/

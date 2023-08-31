@@ -98,6 +98,7 @@ const Header = (props) => {
         <Box sx={headerBoxType}>
           <MenuList sx={headerMenuListType}>
             <MenuItem
+              disableRipple
               component={RouterLink}
               to='/movie/boxOffice'
               sx={headerMenuItem}
@@ -106,24 +107,39 @@ const Header = (props) => {
                 영화
               </ListItemText>
             </MenuItem>
-            <MenuItem component={RouterLink} to='/booking' sx={headerMenuItem}>
+            <MenuItem
+              disableRipple
+              component={RouterLink}
+              to='/booking'
+              sx={headerMenuItem}
+            >
               <ListItemText primaryTypographyProps={headerListItemText}>
                 예매
               </ListItemText>
             </MenuItem>
-            <MenuItem component={RouterLink} to='/' sx={headerMenuItem}>
+            <MenuItem
+              disableRipple
+              component={RouterLink}
+              to='/'
+              sx={headerMenuItem}
+            >
               {type === 'none' ? (
                 <img src='/images/logo/gigabox.png' alt='기가박스' />
               ) : (
                 <img src='/images/logo/gigabox_main.png' alt='기가박스' />
               )}
             </MenuItem>
-            <MenuItem sx={headerMenuItem}>
+            <MenuItem disableRipple sx={headerMenuItem}>
               <ListItemText primaryTypographyProps={headerListItemText}>
                 이벤트
               </ListItemText>
             </MenuItem>
-            <MenuItem sx={headerMenuItem}>
+            <MenuItem
+              disableRipple
+              component={RouterLink}
+              to='/myPage'
+              sx={headerMenuItem}
+            >
               <ListItemText primaryTypographyProps={headerListItemText}>
                 마이페이지
               </ListItemText>
