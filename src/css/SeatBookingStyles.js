@@ -140,9 +140,8 @@ export const sdOuterBox = {
 };
 
 export const sdToggleBtnGroupBox = {
+  paddingLeft: '2rem',
   textAlign: 'left',
-  display: 'flex',
-  justifyContent: 'center',
 };
 
 export const sdLetterToggleButton = {
@@ -196,6 +195,26 @@ export const sdNumberToggleGroupRight = {
   marginLeft: '1rem',
   marginRight: '3rem',
 };
+
+// export const sdNumberToggleButton_selected = {
+//   width: '25px',
+//   height: '25px',
+//   margin: '1px',
+//   border: '1px solid #02bfd3',
+//   borderRadius: '0px',
+//   background: '#503396',
+//   color: '#ffffff',
+//   '&:hover': {
+//     background: '#503396',
+//   },
+//   '&.Mui-selected': {
+//     background: '#f5f5f5',
+//     borderBottom: '2px solid #503396',
+//     '&:hover': {
+//       background: '#f5f5f5',
+//     },
+//   },
+// };
 
 /******************************************/
 /* SeatDisplay CSS end */

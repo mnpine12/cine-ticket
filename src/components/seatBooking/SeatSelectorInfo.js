@@ -189,7 +189,7 @@ export const SeatSelectorInfo = () => {
             <Button
               fullWidth
               disableRipple
-              disableElevation
+              disableElevation={true}
               variant='contained'
               sx={ssiFooterBtn_L}
             >
@@ -200,7 +200,7 @@ export const SeatSelectorInfo = () => {
             <Button
               fullWidth
               disableRipple
-              disableElevation
+              disableElevation={true}
               variant='contained'
               sx={ssiFooterBtn_R}
             >
