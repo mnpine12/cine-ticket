@@ -177,7 +177,7 @@ export const Main = () => {
               <Box sx={mbGridItemButton}>
                 <Button
                   variant='contained'
-                  disableElevation
+                  disableElevation={true}
                   disableRipple
                   sx={mbButton}
                   onClick={handleOnClick}

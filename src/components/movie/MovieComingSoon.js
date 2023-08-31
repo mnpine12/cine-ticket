@@ -145,7 +145,7 @@ export const MovieComingSoon = () => {
               </Box>
               <Button
                 variant='contained'
-                disableElevation
+                disableElevation={true}
                 disableRipple
                 sx={mcsButton}
               >

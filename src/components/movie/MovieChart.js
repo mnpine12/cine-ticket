@@ -143,7 +143,7 @@ export const MovieChart = () => {
               </Box>
               <Button
                 variant='contained'
-                disableElevation
+                disableElevation={true}
                 disableRipple
                 sx={mcButton}
               >
