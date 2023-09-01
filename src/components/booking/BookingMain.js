@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import { useParams } from 'react-router-dom';
 
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
@@ -21,7 +22,9 @@ import {
 } from '../../css/BookingStyles';
 
 export const BookingMain = () => {
+  const { movieId } = useParams();
   const cachedHeader = useMemo(() => <Header type={'none'} />, []);
+
   return (
     <>
       {cachedHeader}
@@ -47,7 +50,7 @@ export const BookingMain = () => {
           <Typography sx={bmTitleTypo}>빠른예매</Typography>
         </Box>
         <HeaderCalendar />
-        <BodyContents />
+        <BodyContents movieId={movieId} />
       </Box>
     </>
   );

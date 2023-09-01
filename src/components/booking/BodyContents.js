@@ -7,10 +7,10 @@ import { BodyTime } from './BodyTime';
 
 import { bcContainerBox } from '../../css/BookingStyles';
 
-export const BodyContents = () => {
+export const BodyContents = ({ movieId }) => {
   return (
     <Box sx={bcContainerBox}>
-      <BodyMovie />
+      <BodyMovie movieId={movieId} />
       <BodyPlace />
       <BodyTime />
     </Box>

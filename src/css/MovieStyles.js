@@ -2,8 +2,6 @@
 /* MovieDetail CSS start */
 /******************************************/
 
-import { bgImage } from '../components/ImgPath';
-
 export const mdContOuterBox = {
   width: '100%',
   height: '500px',
@@ -248,6 +246,13 @@ export const mcImageText = {
   paddingLeft: '5px',
   paddingRight: '5px',
   color: '#ffffff',
+  top: '20px',
+  left: '15px',
+  right: '15px',
+  maxHeight: '15rem',
+  overflow: 'hidden',
+  whiteSpace: 'pre-line',
+  textOverflow: 'ellipsis',
 };
 
 export const mcGridItemImageOverlay = {

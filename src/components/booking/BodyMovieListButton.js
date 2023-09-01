@@ -11,8 +11,10 @@ export const BodyMovieListButton = ({
   selectedMovies,
   handleMovieClick,
   ageRating,
+  movieId,
 }) => {
   const [imgUrl, setImgUrl] = useState('/images/icon/ALL_46x46.png');
+
   useEffect(() => {
     if (ageRating === 'ALL') {
       setImgUrl('/images/icon/ALL_46x46.png');
@@ -24,6 +26,13 @@ export const BodyMovieListButton = ({
   const handleOnClick = () => {
     handleMovieClick(index);
   };
+
+  useEffect(() => {
+    if (movieId * 1 === index) {
+      handleMovieClick(index);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [movieId]);
 
   return (
     <ListItemButton

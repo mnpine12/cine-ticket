@@ -1,5 +1,5 @@
 import { useNavigate } from 'react-router-dom';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
 import Header from './Header';
 import movie from '../movie.json';
@@ -72,6 +72,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 export const Main = () => {
   const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState([]);
+  const cachedHeader = useMemo(() => <Header type={'black'} />, []);
 
   useEffect(() => {
     const initialHoverState = movie.map(() => ({ hovered: false }));
@@ -94,8 +95,12 @@ export const Main = () => {
     });
   };
 
-  const handleOnClick = () => {
-    alert('예매 페이지로 넘어갑니다.');
+  const handleOnClick = (movieId) => {
+    if (movieId !== '') {
+      navigate(`/booking/${movieId}`);
+    } else {
+      navigate(`/booking`);
+    }
   };
 
   const handleMovieOnClick = (movieId) => {
@@ -104,7 +109,7 @@ export const Main = () => {
 
   return (
     <>
-      <Header type={'black'} />
+      {cachedHeader}
       <Box sx={mbOuterBox}>
         <Grid container sx={mbGridContainerText}>
           <Grid item xs={12} sm={12} sx={mbGridItemText}>
@@ -154,7 +159,7 @@ export const Main = () => {
                   disableElevation={true}
                   disableRipple
                   sx={mbButton}
-                  onClick={handleOnClick}
+                  onClick={() => handleOnClick(movie[index].id)}
                 >
                   예매
                 </Button>

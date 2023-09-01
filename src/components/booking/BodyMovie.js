@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
@@ -17,33 +17,38 @@ import {
 
 import { BodyMovieListButton } from './BodyMovieListButton';
 import { FooterMovieImage } from './FooterMovieImage';
+import { poster } from '../ImgPath';
 
 const movies = [
-  { title: '오펜하이머', ageRating: '15세' },
-  { title: '메가로돈2', ageRating: '15세' },
-  { title: '콘크리트 유토피아', ageRating: '15세' },
-  { title: '밀수', ageRating: '15세' },
-  { title: '미션 임파서블: 데드 레코닝 PART ONE', ageRating: '15세' },
-  { title: '엘리멘탈', ageRating: 'ALL' },
-  { title: '명탐정 코난', ageRating: '12세' },
-  { title: '그녀의 취미생활', ageRating: '15세' },
-  { title: '볼코노프 대위 탈출하다', ageRating: '15세' },
-  { title: '고대 이집트 세계관과 불변의 상징들', ageRating: 'ALL' },
-  { title: '[존 크랑코’s 발레 3부작] 로미오와 줄리엣', ageRating: 'ALL' },
-  { title: '고대 이집트 문명의 빛나는 유산', ageRating: 'ALL' },
-  { title: '아만다', ageRating: '15' },
-  { title: '강변의 무코리타', ageRating: '12세' },
-  { title: '지옥만세', ageRating: '12세' },
+  { id: 0, title: '오펜하이머', ageRating: '15세' },
+  { id: 1, title: '메가로돈2', ageRating: '15세' },
+  { id: 2, title: '콘크리트 유토피아', ageRating: '15세' },
+  { id: 3, title: '밀수', ageRating: '15세' },
+  { id: 4, title: '미션 임파서블: 데드 레코닝 PART ONE', ageRating: '15세' },
+  { id: 5, title: '엘리멘탈', ageRating: 'ALL' },
+  { id: 6, title: '명탐정 코난', ageRating: '12세' },
+  { id: 7, title: '그녀의 취미생활', ageRating: '15세' },
+  { id: 8, title: '볼코노프 대위 탈출하다', ageRating: '15세' },
+  { id: 9, title: '고대 이집트 세계관과 불변의 상징들', ageRating: 'ALL' },
+  {
+    id: 10,
+    title: '[존 크랑코’s 발레 3부작] 로미오와 줄리엣',
+    ageRating: 'ALL',
+  },
+  { id: 11, title: '고대 이집트 문명의 빛나는 유산', ageRating: 'ALL' },
+  { id: 12, title: '아만다', ageRating: '15' },
+  { id: 13, title: '강변의 무코리타', ageRating: '12세' },
+  { id: 14, title: '지옥만세', ageRating: '12세' },
 ];
 
-export const BodyMovie = () => {
+export const BodyMovie = ({ movieId }) => {
   const [selectedMenu, setSelectedMenu] = useState(0);
   const [selectedMovies, setSelectedMovies] = useState([]);
   const [imgUrl, setImgUrl] = useState([]);
 
   // 영화 선택 및 삭제
   const handleMovieClick = (index) => {
-    const imgSrc = '/images/poster/poster_' + index + '.jpg';
+    const imgSrc = poster[`poster${index}`];
 
     if (!selectedMovies.includes(index) && selectedMovies.length < 3) {
       setSelectedMovies([...selectedMovies, index]);
@@ -103,6 +108,7 @@ export const BodyMovie = () => {
                   selectedMovies={selectedMovies}
                   handleMovieClick={handleMovieClick}
                   ageRating={movie.ageRating}
+                  movieId={movieId}
                 />
               ))}
             </List>

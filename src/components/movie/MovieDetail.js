@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useMemo, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -50,22 +50,28 @@ const CustomButton = styled(Button)({
 });
 
 export const MovieDetail = () => {
+  const navigate = useNavigate();
   const { movieId } = useParams();
   const [more, setMore] = useState(false);
   const movieTitle = movie[movieId].title;
   const movieEngTitle = movie[movieId].engTitle;
-  const reservationRate = movie[movieId].reservationRate;
+  const rank = movie[movieId].rank;
   const cumulative = movie[movieId].cumulative;
   const profileImg = '/images/profile/profile_' + movieId + '.jpg';
   const backgroundImageUrl = bgImage[`bgImage${movieId}`];
+  const cachedHeader = useMemo(() => <Header type={'none'} />, []);
 
   const handleOnClickMoreButton = () => {
     setMore(!more);
   };
 
+  const handleOnClick = (movieId) => {
+    navigate(`/booking/${movieId}`);
+  };
+
   return (
     <>
-      <Header type={'none'} />
+      {cachedHeader}
       <Box sx={mdContOuterBox}>
         <Grid container sx={mdContGridContainer(backgroundImageUrl)}>
           <div style={mdContGridContainerOverlay} />
@@ -98,7 +104,7 @@ export const MovieDetail = () => {
                   sm={1.5}
                   sx={{ display: 'flex', alignItems: 'flex-end' }}
                 >
-                  <Typography variant='h4'>{reservationRate}</Typography>
+                  <Typography variant='h4'>{rank}</Typography>
                   <Typography variant='h6'>위</Typography>
                 </Grid>
                 <Grid
@@ -119,7 +125,11 @@ export const MovieDetail = () => {
               src={profileImg}
               alt={movie[movieId].title}
             />
-            <Button variant='contained' sx={mdButton}>
+            <Button
+              variant='contained'
+              sx={mdButton}
+              onClick={() => handleOnClick(movieId)}
+            >
               예매
             </Button>
           </Grid>
