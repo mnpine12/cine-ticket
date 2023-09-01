@@ -25,4 +25,8 @@ export const bgImage = {
   bgImage1: '/images/background/bgImage_1.jpg',
   bgImage2: '/images/background/bgImage_2.jpg',
   bgImage3: '/images/background/bgImage_3.jpg',
+  bgImage11: '/images/background/bgImage_11.jpg',
+  bgImage12: '/images/background/bgImage_12.jpg',
+  bgImage13: '/images/background/bgImage_13.jpg',
+  bgImage14: '/images/background/bgImage_14.jpg',
 };

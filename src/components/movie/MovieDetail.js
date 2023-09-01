@@ -56,6 +56,7 @@ export const MovieDetail = () => {
   const movieTitle = movie[movieId].title;
   const movieEngTitle = movie[movieId].engTitle;
   const rank = movie[movieId].rank;
+  const reservationRate = movie[movieId].reservationRate;
   const cumulative = movie[movieId].cumulative;
   const profileImg = '/images/profile/profile_' + movieId + '.jpg';
   const backgroundImageUrl = bgImage[`bgImage${movieId}`];
@@ -104,8 +105,17 @@ export const MovieDetail = () => {
                   sm={1.5}
                   sx={{ display: 'flex', alignItems: 'flex-end' }}
                 >
-                  <Typography variant='h4'>{rank}</Typography>
-                  <Typography variant='h6'>위</Typography>
+                  {rank !== null ? (
+                    <>
+                      <Typography variant='h4'>{reservationRate}</Typography>
+                      <Typography variant='h6'>%</Typography>
+                    </>
+                  ) : (
+                    <>
+                      <Typography variant='h4'>{rank}</Typography>
+                      <Typography variant='h6'>위</Typography>
+                    </>
+                  )}
                 </Grid>
                 <Grid
                   item

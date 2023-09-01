@@ -359,6 +359,13 @@ export const mcsImageText = {
   paddingLeft: '5px',
   paddingRight: '5px',
   color: '#ffffff',
+  top: '20px',
+  left: '15px',
+  right: '15px',
+  maxHeight: '15rem',
+  overflow: 'hidden',
+  whiteSpace: 'pre-line',
+  textOverflow: 'ellipsis',
 };
 
 export const mcsGridItemImageOverlay = {
