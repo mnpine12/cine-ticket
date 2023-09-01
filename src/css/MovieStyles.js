@@ -2,6 +2,8 @@
 /* MovieDetail CSS start */
 /******************************************/
 
+import { bgImage } from '../components/ImgPath';
+
 export const mdContOuterBox = {
   width: '100%',
   height: '500px',
@@ -10,14 +12,14 @@ export const mdContOuterBox = {
   background: '#151515',
 };
 
-export const mdContGridContainer = {
+export const mdContGridContainer = (backgroundImageUrl) => ({
   width: '80%',
   height: '100%',
   margin: 'auto',
   position: 'relative',
-  backgroundImage: 'url("images/poster02.jpg")',
+  backgroundImage: `url(${backgroundImageUrl})`,
   backgroundSize: 'cover',
-};
+});
 
 export const mdContGridItemText = {
   width: '100%',

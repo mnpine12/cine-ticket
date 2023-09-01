@@ -161,6 +161,9 @@ export const mbImage = {
 export const mbImageText = {
   position: 'absolute',
   color: '#ffffff',
+  top: '20px',
+  left: '15px',
+  right: '15px',
 };
 
 export const mbContGridItemImageOverlay = {
