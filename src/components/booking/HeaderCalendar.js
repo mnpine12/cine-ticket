@@ -133,7 +133,6 @@ export const HeaderCalendar = () => {
     setIsHeaderRightDisabled(newScrollPosition === 805);
     const container = document.getElementById('date-list-container');
     container.scrollLeft = newScrollPosition;
-    console.log(typeof selectedCalendarDate);
   };
 
   const headerHandleScroll = (direction) => {

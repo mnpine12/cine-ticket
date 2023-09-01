@@ -243,6 +243,7 @@ export const bcmImage = {
 
 export const bcmMoviesListButton = {
   height: '28px',
+  width: '250px',
   padding: '3px 3px 3px 3px',
   boxSizing: 'border-box',
   display: 'flex',
@@ -259,6 +260,16 @@ export const bcmMoviesListButton = {
     },
   },
   fontFamily: 'NanumBarunGothic, sans-serif',
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+  textOverflow: 'ellipsis',
+  // 추가: 텍스트가 ellipsis로 생략될 때 텍스트 색상을 조정
+  '&.Mui-selected .MuiListItemText-root': {
+    color: '#ffffff',
+    overflow: 'hidden',
+    whiteSpace: 'nowrap',
+    textOverflow: 'ellipsis',
+  },
 };
 
 export const bcmMovieListButtonImg = {

@@ -10,14 +10,14 @@ export const mdContOuterBox = {
   background: '#151515',
 };
 
-export const mdContGridContainer = {
+export const mdContGridContainer = (backgroundImageUrl) => ({
   width: '80%',
   height: '100%',
   margin: 'auto',
   position: 'relative',
-  backgroundImage: 'url("images/poster02.jpg")',
+  backgroundImage: `url(${backgroundImageUrl})`,
   backgroundSize: 'cover',
-};
+});
 
 export const mdContGridItemText = {
   width: '100%',
@@ -246,6 +246,13 @@ export const mcImageText = {
   paddingLeft: '5px',
   paddingRight: '5px',
   color: '#ffffff',
+  top: '20px',
+  left: '15px',
+  right: '15px',
+  maxHeight: '15rem',
+  overflow: 'hidden',
+  whiteSpace: 'pre-line',
+  textOverflow: 'ellipsis',
 };
 
 export const mcGridItemImageOverlay = {
@@ -352,6 +359,13 @@ export const mcsImageText = {
   paddingLeft: '5px',
   paddingRight: '5px',
   color: '#ffffff',
+  top: '20px',
+  left: '15px',
+  right: '15px',
+  maxHeight: '15rem',
+  overflow: 'hidden',
+  whiteSpace: 'pre-line',
+  textOverflow: 'ellipsis',
 };
 
 export const mcsGridItemImageOverlay = {

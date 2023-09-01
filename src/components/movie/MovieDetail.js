@@ -1,5 +1,5 @@
-import { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useMemo, useState } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
@@ -26,7 +26,10 @@ import {
   mdDataGridItemTitle,
   mdButton,
 } from '../../css/MovieStyles';
+
 import Header from '../../layout/Header';
+import movie from '../../movie.json';
+import { bgImage } from '../ImgPath';
 
 const CustomButton = styled(Button)({
   backgroundColor: 'none',
@@ -47,22 +50,31 @@ const CustomButton = styled(Button)({
 });
 
 export const MovieDetail = () => {
+  const navigate = useNavigate();
   const { movieId } = useParams();
   const [more, setMore] = useState(false);
-  const movieTitle = '메가로돈 2';
-  const movieEngTitle = 'Meg 2: The Trench';
-  const reservationRate = 1;
-  const cumulative = 1000;
+  const movieTitle = movie[movieId].title;
+  const movieEngTitle = movie[movieId].engTitle;
+  const rank = movie[movieId].rank;
+  const reservationRate = movie[movieId].reservationRate;
+  const cumulative = movie[movieId].cumulative;
+  const profileImg = '/images/profile/profile_' + movieId + '.jpg';
+  const backgroundImageUrl = bgImage[`bgImage${movieId}`];
+  const cachedHeader = useMemo(() => <Header type={'none'} />, []);
 
   const handleOnClickMoreButton = () => {
     setMore(!more);
   };
 
+  const handleOnClick = (movieId) => {
+    navigate(`/booking/${movieId}`);
+  };
+
   return (
     <>
-      <Header type={'none'} />
+      {cachedHeader}
       <Box sx={mdContOuterBox}>
-        <Grid container sx={mdContGridContainer}>
+        <Grid container sx={mdContGridContainer(backgroundImageUrl)}>
           <div style={mdContGridContainerOverlay} />
           <Grid item xs={12} sm={8} sx={mdContGridItemText}>
             <Box sx={{ mt: 8, ml: 2 }}>
@@ -93,8 +105,17 @@ export const MovieDetail = () => {
                   sm={1.5}
                   sx={{ display: 'flex', alignItems: 'flex-end' }}
                 >
-                  <Typography variant='h4'>{reservationRate}</Typography>
-                  <Typography variant='h6'>위</Typography>
+                  {rank !== null ? (
+                    <>
+                      <Typography variant='h4'>{reservationRate}</Typography>
+                      <Typography variant='h6'>%</Typography>
+                    </>
+                  ) : (
+                    <>
+                      <Typography variant='h4'>{rank}</Typography>
+                      <Typography variant='h6'>위</Typography>
+                    </>
+                  )}
                 </Grid>
                 <Grid
                   item
@@ -111,10 +132,14 @@ export const MovieDetail = () => {
           <Grid item xs={12} sm={4} sx={mdContGridItemImage}>
             <img
               style={mdContImage}
-              src='/images/poster01.jpg'
-              alt='메가로돈 2 영화 포스터'
+              src={profileImg}
+              alt={movie[movieId].title}
             />
-            <Button variant='contained' sx={mdButton}>
+            <Button
+              variant='contained'
+              sx={mdButton}
+              onClick={() => handleOnClick(movieId)}
+            >
               예매
             </Button>
           </Grid>
@@ -124,28 +149,13 @@ export const MovieDetail = () => {
         <Grid container sx={mdDataGridContainer}>
           <Grid item xs={12} sm={12} sx={mdDataGridItemTitle}>
             <Typography variant='text' sx={mdDataTitleTypo}>
-              더 거대해진 메가로돈 VS 더 강력해진 제이슨 스타뎀
+              {movie[movieId].summaryTitle}
             </Typography>
           </Grid>
           {more && (
             <Grid item xs={12} sm={12} sx={mdDataGridItemText}>
               <Typography variant='text' sx={mdDataContentTypo}>
-                지구 역사상 가장 거대한 최상위 포식자 ‘메가로돈’과 목숨 건 사투
-                끝에 살아남은 다이버 ‘조나스’는 해양 연구소의 팀원들과 함께 심해
-                탐사에 나서던 중 예기치 못한 사고로 해저 7,620m에 고립되고 만다.
-                상상 초월의 위험이 도사린 그곳에서 그들이 마주하게 된 것은 더욱
-                거대해진 ‘메가로돈’ 무리. 그들 앞에 또다시 모습을 드러낸
-                메가로돈을 비롯해 거대한 촉수로 모든 것을 휘감는 대왕 문어 ‘메가
-                옥토퍼스’와 육지와 바다를 넘나드는 육식 공룡 ‘스내퍼’까지. 더
-                다양하고 강력해진 고대 생물들의 무자비한 공격이 쏟아지는 가운데
-                강철 다이버 ‘조나스’는 사람들을 구하기 위해 다시 한번 맨몸으로
-                ‘메가로돈’과의 맞대결에 나서는데…
-              </Typography>
-              <br />
-              <br />
-              <br />
-              <Typography variant='text'>
-                올여름 무더위를 집어삼킬 짜릿한 대결이 시작된다!
+                {movie[movieId].summaryContents}
               </Typography>
             </Grid>
           )}
@@ -166,13 +176,22 @@ export const MovieDetail = () => {
             </CustomButton>
           </Grid>
           <Grid item xs={12} sm={12} sx={mdDataGridItemInfo}>
-            <Typography variant='text' sx={mdDataContentTypo}>
-              상영타입 : 2D(자막)
-            </Typography>
+            {movie[movieId].screeningType !== '' ? (
+              <Typography variant='text' sx={mdDataContentTypo}>
+                상영타입 : {movie[movieId].screeningType}
+              </Typography>
+            ) : (
+              <Typography variant='text' sx={mdDataContentTypo}>
+                상영타입 : {movie[movieId].screeningType}(
+                {movie[movieId].hasSubtitles})
+              </Typography>
+            )}
             <br />
             <Typography variant='text' sx={mdDataContentTypo}>
-              감독 : 벤 휘틀리 장르 : 액션 / 116 분 등급 : 12세이상관람가 개봉일
-              : 2023.08.15
+              감독 : 벤 휘틀리 <br></br>
+              장르 : 액션 / {movie[movieId].duration} 분 &nbsp; 등급 :{' '}
+              {movie[movieId].ageRating}이상관람가 &nbsp; 개봉일 :{' '}
+              {movie[movieId].releaseDate}
             </Typography>
             <br />
             <Typography variant='text' sx={mdDataContentTypo}>
