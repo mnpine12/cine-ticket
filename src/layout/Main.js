@@ -1,4 +1,4 @@
-// import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import Header from './Header';
 
@@ -68,6 +68,7 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 // 임의로 데이터 직접 Initialize
 const movie = [
   {
+    id: 0,
     title: '오펜하이머',
     ageRating: '15세',
     reservationRate: 56.9,
@@ -77,6 +78,7 @@ const movie = [
       '세상을 구하기 위해 세상을 파괴할 지도 모르는 선택을 해야 하는 천재 과학자의 핵개발 프로젝트.',
   },
   {
+    id: 1,
     title: '콘크리트유토피아',
     ageRating: '15세',
     reservationRate: 12.7,
@@ -86,6 +88,7 @@ const movie = [
       '온 세상을 집어삼킨 대지진, 그리고 하루아침에 폐허가 된 서울. 모든 것이 무너졌지만 오직 황궁 아파트만은 그대로다.',
   },
   {
+    id: 2,
     title: '메가로돈2',
     ageRating: '15세',
     reservationRate: 10.1,
@@ -95,6 +98,7 @@ const movie = [
       '지구 역사상 가장 거대한 최상위 포식자 ‘메가로돈’과 목숨 건 사투 끝에 살아남은 다이버 ‘조나스’는 해양 연구소의 팀원들과 함께 심해 탐사에 나서던 중 예기치 못한 사고로 해저 7,620m에 고립되고 만다.',
   },
   {
+    id: 3,
     title: '밀수',
     ageRating: '15세',
     reservationRate: 4.1,
@@ -106,7 +110,7 @@ const movie = [
 ];
 
 export const Main = () => {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [isHovered, setIsHovered] = useState([]);
 
   useEffect(() => {
@@ -132,7 +136,10 @@ export const Main = () => {
 
   const handleOnClick = () => {
     alert('예매 페이지로 넘어갑니다.');
-    // navigate('/detail');
+  };
+
+  const handleMovieOnClick = (movieId) => {
+    navigate(`/detail/${movieId}`);
   };
 
   return (
@@ -152,27 +159,31 @@ export const Main = () => {
                 onMouseEnter={() => handleOnMouseEnter(index)}
                 onMouseLeave={() => handleOnMouseLeave(index)}
               >
-                {isHovered[index]?.hovered === true ? (
-                  <>
+                <Link to={`/detail/${movie[index].id}`}>
+                  {isHovered[index]?.hovered === true ? (
+                    <>
+                      <img
+                        src={`/images/main_image_0${index + 1}.jpg`}
+                        alt={movie[index].title}
+                        style={mbContGridItemImageOverlay}
+                        onClick={() => handleMovieOnClick(movie[index].id)}
+                      />
+                      <Typography sx={mbImageText}>
+                        {movie[index].summaryTitle}
+                        <br />
+                        <br />
+                        {movie[index].summaryContents}
+                      </Typography>
+                    </>
+                  ) : (
                     <img
                       src={`/images/main_image_0${index + 1}.jpg`}
                       alt={movie[index].title}
-                      style={mbContGridItemImageOverlay}
+                      style={mbImage}
+                      onClick={() => handleMovieOnClick(movie[index].id)}
                     />
-                    <Typography sx={mbImageText}>
-                      {movie[index].summaryTitle}
-                      <br />
-                      <br />
-                      {movie[index].summaryContents}
-                    </Typography>
-                  </>
-                ) : (
-                  <img
-                    src={`/images/main_image_0${index + 1}.jpg`}
-                    alt={movie[index].title}
-                    style={mbImage}
-                  />
-                )}
+                  )}
+                </Link>
               </Box>
               <Box sx={mbGridItemButton}>
                 <Button

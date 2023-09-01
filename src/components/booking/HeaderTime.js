@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import ListItemButton from '@mui/material/ListItemButton';
@@ -23,8 +23,37 @@ export const HeaderTime = () => {
   const playStartTime = '9:50';
   const startTime = parseInt(playStartTime.slice(0, 1));
 
+  useEffect(() => {
+    setSelectedTimeIndex(startTime);
+    scrollToCenter(startTime);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  // useEffect(() => {
+  //   scrollToCenter(selectedTimeIndex);
+  // }, []); //요일이 바뀔때마다 시간 위치 재설정
+
   const handleOnClickStartTime = (index) => {
     setSelectedTimeIndex(index);
+  };
+
+  // startTime 시간을 리스트 가운데로 옮기기
+  const scrollToCenter = (startTime) => {
+    const scrollStep = 20;
+    let centerScroll = 0;
+    const container = document.getElementById('time-list-container');
+
+    if (startTime < 5 && startTime > 0) {
+      centerScroll = 0;
+    } else if (startTime > 24) {
+      centerScroll = 380;
+    } else {
+      centerScroll = scrollStep * (startTime - 5);
+    }
+    setScrollPosition(centerScroll);
+    setIsLeftDisabled(centerScroll === 0);
+    setIsRightDisabled(centerScroll === 380);
+    container.scrollLeft = centerScroll;
   };
 
   // 시간 버튼으로 스크롤 넘기기
@@ -44,7 +73,6 @@ export const HeaderTime = () => {
     }
 
     setScrollPosition(newScrollPosition);
-
     // 버튼 활성/비활성 상태 업데이트
     setIsLeftDisabled(newScrollPosition === 0);
     setIsRightDisabled(newScrollPosition === 380);

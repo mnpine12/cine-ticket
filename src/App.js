@@ -30,7 +30,7 @@ function App() {
         </Route>
         <Route path='/booking' element={<BookingMain />} />
         <Route path='/seatBooking' element={<SeatBooking />} />
-        <Route path='/detail' element={<MovieDetail />} />
+        <Route path='/detail/:movieId' element={<MovieDetail />} />
       </Routes>
     </BrowserRouter>
   );
