@@ -1,9 +1,15 @@
 import { useState } from 'react';
+import { useParams } from 'react-router-dom';
+
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import InputLabel from '@mui/material/InputLabel';
 import Typography from '@mui/material/Typography';
+import { styled } from '@mui/material/styles';
+import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
+import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
+
 import {
   mdContOuterBox,
   mdContGridContainer,
@@ -20,11 +26,6 @@ import {
   mdDataGridItemTitle,
   mdButton,
 } from '../../css/MovieStyles';
-
-import KeyboardArrowDownOutlinedIcon from '@mui/icons-material/KeyboardArrowDownOutlined';
-import KeyboardArrowUpOutlinedIcon from '@mui/icons-material/KeyboardArrowUpOutlined';
-import { styled } from '@mui/material/styles';
-
 import Header from '../../layout/Header';
 
 const CustomButton = styled(Button)({
@@ -46,6 +47,7 @@ const CustomButton = styled(Button)({
 });
 
 export const MovieDetail = () => {
+  const { movieId } = useParams();
   const [more, setMore] = useState(false);
   const movieTitle = '메가로돈 2';
   const movieEngTitle = 'Meg 2: The Trench';

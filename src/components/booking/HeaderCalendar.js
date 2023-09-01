@@ -102,6 +102,7 @@ export const HeaderCalendar = () => {
     setSelectedDayIndex(index);
     setSelectedDay(dayjs(date));
   };
+
   const calculateScrollPosition = (selectedIndex) => {
     const scrollStep = 23;
     let centerScroll = 0;
